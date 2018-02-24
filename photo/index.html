@@ -8,16 +8,16 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>相册 | 尧的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="var phData=[             {                 jsonData:&quot;2018_2_24.json&quot;,                 elm:&quot;ph-box&quot;,                 day:&quot;2018.2.24&quot;             }         ]             function cr">
+  <meta name="description" content="var phData=[             {                 jsonData:&quot;2018_2_24.json&quot;,                 elm:&quot;ph-2018_2_24&quot;,                 day:&quot;2018.2.24&quot;             }         ]              func">
 <meta property="og:type" content="website">
 <meta property="og:title" content="相册">
 <meta property="og:url" content="http://yoursite.com/photo/index.html">
 <meta property="og:site_name" content="尧的技术博客">
-<meta property="og:description" content="var phData=[             {                 jsonData:&quot;2018_2_24.json&quot;,                 elm:&quot;ph-box&quot;,                 day:&quot;2018.2.24&quot;             }         ]             function cr">
-<meta property="og:updated_time" content="2018-02-24T09:41:05.918Z">
+<meta property="og:description" content="var phData=[             {                 jsonData:&quot;2018_2_24.json&quot;,                 elm:&quot;ph-2018_2_24&quot;,                 day:&quot;2018.2.24&quot;             }         ]              func">
+<meta property="og:updated_time" content="2018-02-24T09:48:06.620Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="相册">
-<meta name="twitter:description" content="var phData=[             {                 jsonData:&quot;2018_2_24.json&quot;,                 elm:&quot;ph-box&quot;,                 day:&quot;2018.2.24&quot;             }         ]             function cr">
+<meta name="twitter:description" content="var phData=[             {                 jsonData:&quot;2018_2_24.json&quot;,                 elm:&quot;ph-2018_2_24&quot;,                 day:&quot;2018.2.24&quot;             }         ]              func">
   
     <link rel="alternative" href="/atom.xml" title="尧的技术博客" type="application/atom+xml">
   
@@ -170,23 +170,24 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><link rel="stylesheet" href="../css/photo.css"></p>
-<p><div style="overflow:hidden;"><br>    <div id="ph-box" style="overflow:hidden;position: relative;"><br>    </div><br></div></p>
+<p><div style="overflow:hidden;"><br>    <div id="ph-2018_2_24" style="overflow:hidden;position: relative;padding-bottom:40px;"><br>    </div><br></div></p>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script src="../js/test.js"></script>
 <script>
         var phData=[
             {
                 jsonData:"2018_2_24.json",
-                elm:"ph-box",
+                elm:"ph-2018_2_24",
                 day:"2018.2.24"
             }
         ]
+
             function creat(data,elm,more,day){
                 var moreElm=document.createElement("div");
-                    moreElm.style="text-align:center;line-height:30px;height:30px;position:absolute;bottom:0;"
+                    moreElm.style="text-align:center;line-height:30px;height:30px;position:absolute;bottom:0;width:80%"
                     moreElm.innerHTML="MORE";
-                    moreElm.onclick=function(){
-                        getMore();
+                    moreElm.onclick=()=>{
+                        getMore(data,elm,true,day);
                     }
                 $.get(data,function(data){
                 var box = document.getElementById(elm);
@@ -212,8 +213,8 @@
             for(let j = 0;j<phData.length;j++){
                 creat(phData[j].jsonData,phData[j].elm,null,phData[j].day);
             }
-            function getMore(){
-                creat("2018_2_24.json","ph-box",true);
+            function getMore(data,elm,more,day){
+                creat(data,elm,more,day);
             }
 </script>
 
