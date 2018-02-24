@@ -8,16 +8,16 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>相册 | 尧的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="2018-2-24             More                $.get(&quot;2018_2_24.json&quot;,function(data){                 console.log(data);                 console.log(&quot;ok&quot;);             });             $.get(&quot;output.json&quot;,f">
+  <meta name="description" content="2018-2-24             More                $.get(&quot;2018_2_24.json&quot;,function(data){                 console.log(data);                 var box = document.getElementById(&quot;ph-box&quot;);                 var htm">
 <meta property="og:type" content="website">
 <meta property="og:title" content="相册">
 <meta property="og:url" content="http://yoursite.com/photo/index.html">
 <meta property="og:site_name" content="尧的技术博客">
-<meta property="og:description" content="2018-2-24             More                $.get(&quot;2018_2_24.json&quot;,function(data){                 console.log(data);                 console.log(&quot;ok&quot;);             });             $.get(&quot;output.json&quot;,f">
-<meta property="og:updated_time" content="2018-02-24T07:48:34.765Z">
+<meta property="og:description" content="2018-2-24             More                $.get(&quot;2018_2_24.json&quot;,function(data){                 console.log(data);                 var box = document.getElementById(&quot;ph-box&quot;);                 var htm">
+<meta property="og:updated_time" content="2018-02-24T07:57:49.666Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="相册">
-<meta name="twitter:description" content="2018-2-24             More                $.get(&quot;2018_2_24.json&quot;,function(data){                 console.log(data);                 console.log(&quot;ok&quot;);             });             $.get(&quot;output.json&quot;,f">
+<meta name="twitter:description" content="2018-2-24             More                $.get(&quot;2018_2_24.json&quot;,function(data){                 console.log(data);                 var box = document.getElementById(&quot;ph-box&quot;);                 var htm">
   
     <link rel="alternative" href="/atom.xml" title="尧的技术博客" type="application/atom+xml">
   
@@ -170,19 +170,15 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="2018-2-24"><a href="#2018-2-24" class="headerlink" title="2018-2-24"></a>2018-2-24</h3><p><link rel="stylesheet" href="../css/photo.css"></p>
-<p><div style="overflow:hidden;"><br>    <div id="ph-box" style="overflow:hidden;"><br>    </div><br>    <div style="text-aline:center;line-height:30px;height:30px;">More</div><br></div></p>
+<p><div style="overflow:hidden;"><br>    <div id="ph-box" style="overflow:hidden;"><br>    </div><br>    <div style="text-align:center;line-height:30px;height:30px;">More</div><br></div></p>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script src="../js/test.js"></script>
 <script>
             $.get("2018_2_24.json",function(data){
                 console.log(data);
-                console.log("ok");
-            });
-            $.get("output.json",function(data){
-                console.log(data);
                 var box = document.getElementById("ph-box");
                 var html = "";
-                for(let i=0;i<data.length;i++){
+                for(let i=0;i<14;i++){
                     var demo = '<img src="'+'../gallery/2018_2_24/'+data[i]+'" />'
                     html += demo;
                 }
