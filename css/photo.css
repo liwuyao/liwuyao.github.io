@@ -9,8 +9,8 @@
 			  	border: 1px solid red;
 			  }
 		      #ph-box img{
-		      	float: left;
 		        width:33%;
+		       	display:inline-block;
 		      }
 		   }
 .h1{
