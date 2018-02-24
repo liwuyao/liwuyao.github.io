@@ -8,16 +8,16 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>相册 | 尧的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="2018-2-24             More                function creat(data,num){                 $.get(data,function(data){                 console.log(data);                 var box = document.getElementById(num)">
+  <meta name="description" content="2018-2-24             More                function creat(data,elm,more){                 $.get(data,function(data){                 var box = document.getElementById(elm);                     box.inne">
 <meta property="og:type" content="website">
 <meta property="og:title" content="相册">
 <meta property="og:url" content="http://yoursite.com/photo/index.html">
 <meta property="og:site_name" content="尧的技术博客">
-<meta property="og:description" content="2018-2-24             More                function creat(data,num){                 $.get(data,function(data){                 console.log(data);                 var box = document.getElementById(num)">
-<meta property="og:updated_time" content="2018-02-24T08:28:07.579Z">
+<meta property="og:description" content="2018-2-24             More                function creat(data,elm,more){                 $.get(data,function(data){                 var box = document.getElementById(elm);                     box.inne">
+<meta property="og:updated_time" content="2018-02-24T08:35:05.631Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="相册">
-<meta name="twitter:description" content="2018-2-24             More                function creat(data,num){                 $.get(data,function(data){                 console.log(data);                 var box = document.getElementById(num)">
+<meta name="twitter:description" content="2018-2-24             More                function creat(data,elm,more){                 $.get(data,function(data){                 var box = document.getElementById(elm);                     box.inne">
   
     <link rel="alternative" href="/atom.xml" title="尧的技术博客" type="application/atom+xml">
   
@@ -170,17 +170,20 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="2018-2-24"><a href="#2018-2-24" class="headerlink" title="2018-2-24"></a>2018-2-24</h3><p><link rel="stylesheet" href="../css/photo.css"></p>
-<p><div style="overflow:hidden;"><br>    <div id="ph-box" style="overflow:hidden;"><br>    </div><br>    <div style="text-align:center;line-height:30px;height:30px;">More</div><br></div></p>
+<p><div style="overflow:hidden;"><br>    <div id="ph-box" style="overflow:hidden;"><br>    </div><br>    <div style="text-align:center;line-height:30px;height:30px;" onclick="getMore()">More</div><br></div></p>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script src="../js/test.js"></script>
 <script>
-            function creat(data,num){
+            function creat(data,elm,more){
                 $.get(data,function(data){
-                console.log(data);
-                var box = document.getElementById(num);
+                var box = document.getElementById(elm);
                     box.innerHTML="";
                 var html = "";
-                for(let i=0;i<12;i++){
+                var num = 12;
+                    if(more){
+                     num=data.length;
+                    }
+                for(let i=0;i<num;i++){
                     var demo = '<img src="'+'../gallery/2018_2_24/'+data[i]+'" />'
                     html += demo;
                 }
@@ -188,6 +191,10 @@
                 })
             }
             creat("2018_2_24.json","ph-box");
+            function getMore(){
+                console.log("ok")
+                creat("2018_2_24.json","ph-box",true);
+            }
 </script>
 
 
