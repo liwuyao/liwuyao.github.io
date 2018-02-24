@@ -8,9 +8,8 @@
 			  #ph-box{
 			  	border: 1px solid red;
 			  }
-		      #ph-box br{
-		        flex: 2;
-		        margin: 0 5px;
+		      #ph-box img{
+		        float: left;
 		      }
 		   }
 .h1{
