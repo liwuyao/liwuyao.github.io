@@ -5,7 +5,11 @@
 		      }
 		   }
 @media screen and (min-width: 400px) {
+			  #ph-box{
+			  	border: 1px solid red;
+			  }
 		      #ph-box img{
+		      	float: left;
 		        width:33%;
 		      }
 		   }
