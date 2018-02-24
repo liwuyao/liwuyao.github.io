@@ -8,16 +8,16 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>相册 | 尧的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="2018-2-24        $.get(&quot;output.json&quot;,function(data){         console.log(data);     });     setTimeout(()=&amp;gt;{         var box = document.getElementById(&quot;ph-box&quot;);         var demo = &apos;&apos;         var html">
+  <meta name="description" content="2018-2-24    //    相册json数组     var phoArray=[         &quot;2018_2_24.json&quot;     ] //    for(let p = 0 ;p{             $.get(&quot;2018_2_24.json&quot;,function(data){             var box = document.getElementById(&quot;">
 <meta property="og:type" content="website">
 <meta property="og:title" content="相册">
 <meta property="og:url" content="http://yoursite.com/photo/index.html">
 <meta property="og:site_name" content="尧的技术博客">
-<meta property="og:description" content="2018-2-24        $.get(&quot;output.json&quot;,function(data){         console.log(data);     });     setTimeout(()=&amp;gt;{         var box = document.getElementById(&quot;ph-box&quot;);         var demo = &apos;&apos;         var html">
-<meta property="og:updated_time" content="2018-02-24T06:31:55.018Z">
+<meta property="og:description" content="2018-2-24    //    相册json数组     var phoArray=[         &quot;2018_2_24.json&quot;     ] //    for(let p = 0 ;p{             $.get(&quot;2018_2_24.json&quot;,function(data){             var box = document.getElementById(&quot;">
+<meta property="og:updated_time" content="2018-02-24T06:52:34.422Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="相册">
-<meta name="twitter:description" content="2018-2-24        $.get(&quot;output.json&quot;,function(data){         console.log(data);     });     setTimeout(()=&amp;gt;{         var box = document.getElementById(&quot;ph-box&quot;);         var demo = &apos;&apos;         var html">
+<meta name="twitter:description" content="2018-2-24    //    相册json数组     var phoArray=[         &quot;2018_2_24.json&quot;     ] //    for(let p = 0 ;p{             $.get(&quot;2018_2_24.json&quot;,function(data){             var box = document.getElementById(&quot;">
   
     <link rel="alternative" href="/atom.xml" title="尧的技术博客" type="application/atom+xml">
   
@@ -173,18 +173,25 @@
 <p><div id="ph-box" style="overflow:hidden;"><br></div></p>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script>
-    $.get("output.json",function(data){
-        console.log(data);
-    });
+//    相册json数组
+    var phoArray=[
+        "2018_2_24.json"
+    ]
+//    for(let p = 0 ;p<phoArray.lenght;p++){
+//        
+//    }
+
     setTimeout(()=>{
-        var box = document.getElementById("ph-box");
-        var demo = '<img src="../img/touxiang1.jpg" />'
-        var html = "";
-        for(let i=0;i<10;i++){
-            html += demo;
-        }
-        box.innerHTML=html;
-    },200)
+            $.get("2018_2_24.json",function(data){
+            var box = document.getElementById("ph-box");
+            var html = "";
+            for(let i=0;i<phoArray.lenght;i++){
+                var demo = '<img src="'+'../gallery/2018_2_24/'+data[i]+'" />'
+                html += demo;
+            }
+            box.innerHTML=html;
+        });
+    },200);
 </script>
 
 
