@@ -8,16 +8,16 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>相册 | 尧的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="2018-2-24       setTimeout(()=&amp;gt;{         var box = document.getElementById(&quot;ph-box&quot;);         var demo = &apos;&apos;         var html = &quot;&quot;;         for(let i=0;i">
+  <meta name="description" content="2018-2-24        $.get(&quot;output.json&quot;,function(data){         console.log(data);     });     setTimeout(()=&amp;gt;{         var box = document.getElementById(&quot;ph-box&quot;);         var demo = &apos;&apos;         var html">
 <meta property="og:type" content="website">
 <meta property="og:title" content="相册">
 <meta property="og:url" content="http://yoursite.com/photo/index.html">
 <meta property="og:site_name" content="尧的技术博客">
-<meta property="og:description" content="2018-2-24       setTimeout(()=&amp;gt;{         var box = document.getElementById(&quot;ph-box&quot;);         var demo = &apos;&apos;         var html = &quot;&quot;;         for(let i=0;i">
-<meta property="og:updated_time" content="2018-02-24T03:36:46.135Z">
+<meta property="og:description" content="2018-2-24        $.get(&quot;output.json&quot;,function(data){         console.log(data);     });     setTimeout(()=&amp;gt;{         var box = document.getElementById(&quot;ph-box&quot;);         var demo = &apos;&apos;         var html">
+<meta property="og:updated_time" content="2018-02-24T06:31:55.018Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="相册">
-<meta name="twitter:description" content="2018-2-24       setTimeout(()=&amp;gt;{         var box = document.getElementById(&quot;ph-box&quot;);         var demo = &apos;&apos;         var html = &quot;&quot;;         for(let i=0;i">
+<meta name="twitter:description" content="2018-2-24        $.get(&quot;output.json&quot;,function(data){         console.log(data);     });     setTimeout(()=&amp;gt;{         var box = document.getElementById(&quot;ph-box&quot;);         var demo = &apos;&apos;         var html">
   
     <link rel="alternative" href="/atom.xml" title="尧的技术博客" type="application/atom+xml">
   
@@ -171,7 +171,11 @@
       
         <h3 id="2018-2-24"><a href="#2018-2-24" class="headerlink" title="2018-2-24"></a>2018-2-24</h3><p><link rel="stylesheet" href="../css/photo.css"></p>
 <p><div id="ph-box" style="overflow:hidden;"><br></div></p>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script>
+    $.get("output.json",function(data){
+        console.log(data);
+    });
     setTimeout(()=>{
         var box = document.getElementById("ph-box");
         var demo = '<img src="../img/touxiang1.jpg" />'
