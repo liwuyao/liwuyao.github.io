@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://yoursite.com/photo/index.html">
 <meta property="og:site_name" content="尧的技术博客">
 <meta property="og:description" content="2018-2-24             More                $.get(&quot;2018_2_24.json&quot;,function(data){                 console.log(data);                 var box = document.getElementById(&quot;ph-box&quot;);                 var htm">
-<meta property="og:updated_time" content="2018-02-24T07:57:49.666Z">
+<meta property="og:updated_time" content="2018-02-24T08:24:26.020Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="相册">
 <meta name="twitter:description" content="2018-2-24             More                $.get(&quot;2018_2_24.json&quot;,function(data){                 console.log(data);                 var box = document.getElementById(&quot;ph-box&quot;);                 var htm">
@@ -178,16 +178,17 @@
                 console.log(data);
                 var box = document.getElementById("ph-box");
                 var html = "";
-                for(let i=0;i<14;i++){
+                for(let i=0;i<12;i++){
                     var demo = '<img src="'+'../gallery/2018_2_24/'+data[i]+'" />'
                     html += demo;
                 }
                 box.innerHTML=html;
-                console.log(html);
-            }).then(function(){
-                console.log("yes")
             })
-
+            function creat(data,num){
+                console.log(data);
+                console.log(num);
+            }
+            creat("haha","aa")
 </script>
 
 
