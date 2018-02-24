@@ -8,7 +8,7 @@
 			  #ph-box{
 			  	border: 1px solid red;
 			  }
-		      #ph-box img{
+		      #ph-box br{
 		        flex: 2;
 		        margin: 0 5px;
 		      }
