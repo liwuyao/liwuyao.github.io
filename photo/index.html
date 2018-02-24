@@ -8,21 +8,16 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>相册 | 尧的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="我的相册">
+  <meta name="description" content="我的相册       setTimeout(()=&amp;gt;{         var box = document.getElementById(&quot;ph-box&quot;);         var demo = &apos;&apos;         var html;         for(let i=0;i">
 <meta property="og:type" content="website">
 <meta property="og:title" content="相册">
 <meta property="og:url" content="http://yoursite.com/photo/index.html">
 <meta property="og:site_name" content="尧的技术博客">
-<meta property="og:description" content="我的相册">
-<meta property="og:image" content="http://yoursite.com/img/touxiang1.jpg">
-<meta property="og:image" content="http://yoursite.com/img/touxiang1.jpg">
-<meta property="og:image" content="http://yoursite.com/img/touxiang1.jpg">
-<meta property="og:image" content="http://yoursite.com/img/touxiang1.jpg">
-<meta property="og:updated_time" content="2018-02-24T02:45:20.675Z">
+<meta property="og:description" content="我的相册       setTimeout(()=&amp;gt;{         var box = document.getElementById(&quot;ph-box&quot;);         var demo = &apos;&apos;         var html;         for(let i=0;i">
+<meta property="og:updated_time" content="2018-02-24T03:00:14.417Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="相册">
-<meta name="twitter:description" content="我的相册">
-<meta name="twitter:image" content="http://yoursite.com/img/touxiang1.jpg">
+<meta name="twitter:description" content="我的相册       setTimeout(()=&amp;gt;{         var box = document.getElementById(&quot;ph-box&quot;);         var demo = &apos;&apos;         var html;         for(let i=0;i">
   
     <link rel="alternative" href="/atom.xml" title="尧的技术博客" type="application/atom+xml">
   
@@ -176,7 +171,18 @@
       
         <p><link rel="stylesheet" href="../css/photo.css"></p>
 <p></p><p class="h1">我的相册</p><p></p>
-<div id="ph-box" style="overflow:hidden;display:flex;flex-direction: row;"><br>    <div><br>        <img src="../img/touxiang1.jpg"><br>    </div><br>    <div><br>        <img src="../img/touxiang1.jpg"><br>    </div><br>    <div><br>        <img src="../img/touxiang1.jpg"><br>    </div><br>    <div><br>        <img src="../img/touxiang1.jpg"><br>    </div><br></div>
+<p><div id="ph-box" style="overflow:hidden;display:flex;flex-direction: row;"><br></div></p>
+<script>
+    setTimeout(()=>{
+        var box = document.getElementById("ph-box");
+        var demo = '<img src="../img/touxiang1.jpg" />'
+        var html;
+        for(let i=0;i<5;i++){
+            html += demo;
+        }
+        box.innerHTML=html;
+    },200)
+</script>
 
 
       
