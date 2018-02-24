@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>相册 | 尧的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="2018-2-24                 $.get(&quot;output.json&quot;,function(data){             var box = document.getElementById(&quot;ph-box&quot;);             var html = &quot;&quot;;             for(let i=0;i">
+  <meta name="description" content="2018-2-24                $.get(&quot;output.json&quot;,function(data){                 console.log(data)             })             $.get(&quot;output.json&quot;,function(data){             var box = document.getElementB">
 <meta property="og:type" content="website">
 <meta property="og:title" content="相册">
 <meta property="og:url" content="http://yoursite.com/photo/index.html">
 <meta property="og:site_name" content="尧的技术博客">
-<meta property="og:description" content="2018-2-24                 $.get(&quot;output.json&quot;,function(data){             var box = document.getElementById(&quot;ph-box&quot;);             var html = &quot;&quot;;             for(let i=0;i">
+<meta property="og:description" content="2018-2-24                $.get(&quot;output.json&quot;,function(data){                 console.log(data)             })             $.get(&quot;output.json&quot;,function(data){             var box = document.getElementB">
 <meta property="og:image" content="http://yoursite.com/gallery/2018_2_24/dakar.jpg">
-<meta property="og:updated_time" content="2018-02-24T07:06:24.830Z">
+<meta property="og:updated_time" content="2018-02-24T07:11:07.143Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="相册">
-<meta name="twitter:description" content="2018-2-24                 $.get(&quot;output.json&quot;,function(data){             var box = document.getElementById(&quot;ph-box&quot;);             var html = &quot;&quot;;             for(let i=0;i">
+<meta name="twitter:description" content="2018-2-24                $.get(&quot;output.json&quot;,function(data){                 console.log(data)             })             $.get(&quot;output.json&quot;,function(data){             var box = document.getElementB">
 <meta name="twitter:image" content="http://yoursite.com/gallery/2018_2_24/dakar.jpg">
   
     <link rel="alternative" href="/atom.xml" title="尧的技术博客" type="application/atom+xml">
@@ -175,7 +175,9 @@
 <p><div id="ph-box" style="overflow:hidden;"><br></div><br><img src="../gallery/2018_2_24/dakar.jpg"></p>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script>
-
+            $.get("output.json",function(data){
+                console.log(data)
+            })
             $.get("output.json",function(data){
             var box = document.getElementById("ph-box");
             var html = "";
