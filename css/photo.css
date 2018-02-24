@@ -9,8 +9,7 @@
 			  	border: 1px solid red;
 			  }
 		      #ph-box img{
-		        width:33%;
-		       	display:inline-block;
+		        flex: 2;
 		      }
 		   }
 .h1{
