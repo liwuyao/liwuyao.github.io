@@ -6,12 +6,13 @@
 		   }
 @media screen and (min-width: 400px) {
 			  #ph-box{
-			  	border: 1px solid red;
+			  	border: 1px solid white;
 			  }
 		      #ph-box img{
 		        float: left;
 		        width: 100px;
 		        height: 100px;
+		        margin: 9px;
 		      }
 		   }
 .h1{
