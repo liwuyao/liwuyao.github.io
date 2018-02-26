@@ -61,7 +61,7 @@
 		<nav class="header-smart-menu">
     		
     			
-    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">true</a>
+    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
     			
             
     			
@@ -189,13 +189,20 @@
 <p>二、hexo</p>
 <p><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">hexo文档地址</a><br>按照官方文档安装好hexo</p>
 <p>安装好后，接下来是对hexo的相关配置</p>
-<p>在cdm的输入</p>
-<p><code>hexo init</code></p>
-<p>然后输入</p>
-<p><code>hexo s</code></p>
-<blockquote>
-<p>3.yilia主题</p>
-</blockquote>
+<p>在_config.yml进行如下配置：</p>
+<p><img src="https://liwuyao.github.io/2018/02/26/blog-build/new_repository7.jpg" alt=""></p>
+<p>在cdm的输入<br><code>hexo init</code><br>此命令是用来生成静态文件<br>然后输入<br><code>hexo s</code><br>此命令是启动服务</p>
+<p>在浏览器中打开<a href="http://localhost:4000/，你将会看到：" target="_blank" rel="noopener">http://localhost:4000/，你将会看到：</a></p>
+<p><img src="https://liwuyao.github.io/2018/02/26/blog-build/new_repository5.jpg" alt=""></p>
+<p>这是在本地浏览是否成功。</p>
+<p>如果你想换个主题（主题指整个网站的样式，布局）,先去网上找好别人做的的主题，我用的是yilia这个主题，下好主题后，将主题放入themes,<br>然后在博客的根目录下的_config.yml文件中找到theme，将参数改成你所找的主题，如图：</p>
+<p><img src="https://liwuyao.github.io/2018/02/26/blog-build/new_repository6.png" alt=""></p>
+<p>安装hexo-deployer-git自动部署发布工具<br><code>npm instal lhexo-deployer-git  --save</code></p>
+<p>最后发布到hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</p>
+<p><strong>补充hexo的命令</strong></p>
+<p>新建文章<br><code>hexo new &quot;name&quot;</code><br>如hexo new “hello-world“<br>执行次命令后会在根目录下创建一个name.md的文件。次文件就是用来写博客的。在写博客之前得知道些markdown的语法。</p>
+<p>新建文件夹<br><code>hexo new page &quot;photo&quot;</code><br>执行次命令后会在根目录的source生成文件夹。在生成静态文件后，文件夹的位置会变到根目录下（public文件夹里存放的是静态文件）</p>
+<p>其他hexo的相关操作，请参考hexo的官方文档。</p>
 
       
 
@@ -366,7 +373,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">true</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
       
         
       
