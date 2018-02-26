@@ -1,6 +1,6 @@
 "use strict";
     const fs = require("fs");
-    const path = "../gallery/2018_2_24";
+    const path = "../gallery/2018_2_26";
 
     fs.readdir(path, function (err, files) {
         if (err) {
@@ -9,7 +9,7 @@
         let arr = [];
         (function iterator(index) {
             if (index == files.length) {
-                fs.writeFile("2018_2_24.json", JSON.stringify(arr, null, "\t"));
+                fs.writeFile("2018_2_26.json", JSON.stringify(arr, null, "\t"));
                 return;
             }
 
