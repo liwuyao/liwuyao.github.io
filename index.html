@@ -171,16 +171,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="详细步骤"><a href="#详细步骤" class="headerlink" title="详细步骤"></a>详细步骤</h2><p> 一.github<br>去申请一个github账户，注意最好有英文格式的游戏，而不是像qq号加@那种。<br>Git需要配置ssh钥匙；<br>git的操作步骤，步骤如下；</p>
+        <h2 id="详细步骤"><a href="#详细步骤" class="headerlink" title="详细步骤"></a>详细步骤</h2><p> 一、github<br>去申请一个github账户，注意最好有英文格式的游戏，而不是像qq号加@那种。<br>Git需要配置ssh钥匙；<br>git的操作步骤，步骤如下；</p>
 <p>在git（需要安装，百度一下就知道），输入git config –global user.name “superGG1990”，用来设置自己的get用户名，<br>superGG1990就是你自己的名字（记得更改），</p>
 <p>在git输入git config –global user.email “<a href="mailto:superGG1990@163.com" target="_blank" rel="noopener">superGG1990@163.com</a>“，用来关联你的邮箱，这个邮箱就是注册的github的邮箱，<br> 然后去找到生成ssh钥密的文件，一般在c/user/.ssh/,文件名叫id_dsa.pub，复制里面的钥密（全部复制），在github上配置。（具体一些细则请百度）；</p>
 <p>登陆之后，点击页面右上角的加号，选择New repository：</p>
 <p><img src="https://liwuyao.github.io/2018/02/26/blog-build/new_repository.jpg" alt="">    </p>
 <p>新建代码库：<br>进入代码库创建页面<br>在Repository name下填写yourname.github.io，Description (optional)下填写一些简单的描述（不写也没有关系），如图所示：</p>
 <p><img src="https://liwuyao.github.io/2018/02/26/blog-build/new_repository2.jpg" alt="">    </p>
-<p><em>注意：比如我的github名称是李伍尧 ,这里你就填 gdutxiaoxu.github.io,如果你的名字是xujun，那你就填 xujun.github.io</em></p>
+<p><strong>注意：比如我的github名称是李伍尧 ,这里你就填 gdutxiaoxu.github.io,如果你的名字是xujun，那你就填 xujun.github.io</strong></p>
+<p>代码库的设置：</p>
+<p>接下来开启gh-pages功能，进入刚才创建的库，点击界面右侧的Settings，你将会打开这个库的setting页面，向下拖动，直到看见GitHub Pages，如图：</p>
+<p><img src="https://liwuyao.github.io/2018/02/26/blog-build/new_repository3.jpg" alt=""></p>
+<p>Github pages</p>
+<p><img src="https://liwuyao.github.io/2018/02/26/blog-build/new_repository4.jpg" alt=""></p>
+<p>点击Automatic page generator，Github将会自动替你创建出一个gh-pages的页面。 如果你的配置没有问题，那么大约15分钟之后，yourname.github.io这个网址就可以正常访问了~ 如果yourname.github.io已经可以正常访问了，那么Github一侧的配置已经全部结束了。</p>
+<p>到此搭建hexo博客的相关环境配置已经完成，下面开始讲解Hexo的相关配置</p>
+<p>二、hexo</p>
 <blockquote>
-<p>2.hexo<br>3.yilia主题</p>
+<p>3.yilia主题</p>
 </blockquote>
 
       
