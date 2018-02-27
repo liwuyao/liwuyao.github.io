@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/02/27/ajax/index.html">
 <meta property="og:site_name" content="尧的技术博客">
 <meta property="og:description" content="介绍 Ajax 即“Asynchronous Javascript And XML”（异步 JavaScript 和 XML），是指一种创建交互式网页应用的网页开发技术。Ajax = 异步 JavaScript 和 XML（标准通用标记语言的子集）。Ajax 是一种用于创建快速动态网页的技术。Ajax 是一种在无需重新加载整个网页的情况下，能够更新部分网页的技术。[1]通过在后台与服务器进行少量数">
-<meta property="og:updated_time" content="2018-02-27T02:37:51.048Z">
+<meta property="og:updated_time" content="2018-02-27T02:40:41.598Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ajax">
 <meta name="twitter:description" content="介绍 Ajax 即“Asynchronous Javascript And XML”（异步 JavaScript 和 XML），是指一种创建交互式网页应用的网页开发技术。Ajax = 异步 JavaScript 和 XML（标准通用标记语言的子集）。Ajax 是一种用于创建快速动态网页的技术。Ajax 是一种在无需重新加载整个网页的情况下，能够更新部分网页的技术。[1]通过在后台与服务器进行少量数">
@@ -182,43 +182,26 @@
 </blockquote>
 <p><strong>注释</strong></p>
 <ol>
-<li>open(method, url, async) 方法需要三个参数:</li>
-</ol>
-<p>　 method：发送请求所使用的方法（GET或POST）；与POST相比，GET更简单也更快，并且在大部分情况下都能用；然而，在以下情况中，请使用POST请求：</p>
-<p><em>无法使用缓存文件（更新服务器上的文件或数据库）
-</em>向服务器发送大量数据（POST 没有数据量限制）<br>*发送包含未知字符的用户输入时，POST 比 GET 更稳定也更可靠<br>　url：规定服务器端脚本的 URL(该文件可以是任何类型的文件，比如 .txt 和 .xml，或者服务器脚本文件，比如 .asp 和 .php （在传回响应之前，能够在服务器上执行任务）)；</p>
-<p>　async：规定应当对请求进行异步（true）或同步（false）处理；true是在等待服务器响应时执行其他脚本，当响应就绪后对响应进行处理；false是等待服务器响应再执行。</p>
-<ol>
-<li><p>send() 方法可将请求送往服务器。</p>
-</li>
-<li><p>onreadystatechange：存有处理服务器响应的函数，每当 readyState 改变时，onreadystatechange 函数就会被执行。</p>
-</li>
-<li><p>readyState：存有服务器响应的状态信息。</p>
-</li>
-</ol>
-<p><em>请求未初始化（代理被创建，但尚未调用 open() 方法）
+<li>open(method, url, async) 方法需要三个参数:<br>method：发送请求所使用的方法（GET或POST）；与POST相比，GET更简单也更快，并且在大部分情况下都能用；然而，在以下情况中，请使用POST请求：<br><em>无法使用缓存文件（更新服务器上的文件或数据库）
+</em>向服务器发送大量数据（POST 没有数据量限制）<br>*发送包含未知字符的用户输入时，POST 比 GET 更稳定也更可靠<br>url：规定服务器端脚本的 URL(该文件可以是任何类型的文件，比如 .txt 和 .xml，或者服务器脚本文件，比如 .asp 和 .php （在传回响应之前，能够在服务器上执行任务）)；<br>async：规定应当对请求进行异步（true）或同步（false）处理；true是在等待服务器响应时执行其他脚本，当响应就绪后对响应进行处理；false是等待服务器响应再执行。</li>
+<li>send() 方法可将请求送往服务器。</li>
+<li>onreadystatechange：存有处理服务器响应的函数，每当 readyState 改变时，onreadystatechange 函数就会被执行。</li>
+<li>readyState：存有服务器响应的状态信息。<br><em>请求未初始化（代理被创建，但尚未调用 open() 方法）
 </em>服务器连接已建立（open方法已经被调用）<br><em>请求已接收（send方法已经被调用，并且头部和状态已经可获得）
-</em>请求处理中（下载中，responseText 属性已经包含部分数据）<br>*请求已完成，且响应已就绪（下载操作已完成）</p>
-<ol>
-<li><p>responseText：获得字符串形式的响应数据。</p>
-</li>
-<li><p>setRequestHeader()：POST传数据时，用来添加 HTTP 头，然后send(data)，注意data格式；GET发送信息时直接加参数到url上就可以，比如url?a=a1&amp;b=b1。</p>
-</li>
+</em>请求处理中（下载中，responseText 属性已经包含部分数据）<br>*请求已完成，且响应已就绪（下载操作已完成）</li>
+<li>responseText：获得字符串形式的响应数据。</li>
+<li>setRequestHeader()：POST传数据时，用来添加 HTTP 头，然后send(data)，注意data格式；GET发送信息时直接加参数到url上就可以，比如url?a=a1&amp;b=b1。<br><strong>jQuery方法实现ajax</strong><br><code>$.ajax({
+ url: ,
+ type: &#39;&#39;,
+ dataType: &#39;&#39;,
+ data: {        
+ },
+ success: function(){    
+ },
+ error: function(){      
+ }
+})</code></li>
 </ol>
-<p><strong>jQuery方法实现ajax</strong></p>
-<blockquote>
-<p>$.ajax({<br>    url: ,<br>    type: ‘’,<br>    dataType: ‘’,<br>    data: {</p>
-</blockquote>
-<pre><code>},
-success: function(){
-
-},
-error: function(){
-
-}
-</code></pre><p> })</p>
-<blockquote>
-</blockquote>
 
       
 
