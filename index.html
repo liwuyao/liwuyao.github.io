@@ -174,29 +174,11 @@
         <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><blockquote>
 <p>Ajax 即“Asynchronous Javascript And XML”（异步 JavaScript 和 XML），是指一种创建交互式网页应用的网页开发技术。<br>Ajax = 异步 JavaScript 和 XML（标准通用标记语言的子集）。<br>Ajax 是一种用于创建快速动态网页的技术。<br>Ajax 是一种在无需重新加载整个网页的情况下，能够更新部分网页的技术。[1]<br>通过在后台与服务器进行少量数据交换，Ajax 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。</p>
 </blockquote>
-<p><strong>原生js方法实现ajax</strong><br><code>var Ajax={
-    get: function(url, fn) {
-        var xhr = new XMLHttpRequest();  // XMLHttpRequest对象用于在后台与服务器交换数据          
-        xhr.open(&#39;GET&#39;, url, true);
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState == 4 &amp;&amp; xhr.status == 200 || xhr.status == 304) { // readyState == 4说明请求已完成
-                fn.call(this, xhr.responseText);  //从服务器获得数据
-            }
-        };
-        xhr.send();
-    },
-    post: function (url, data, fn) {         // datat应为&#39;a=a1&amp;b=b1&#39;这种字符串格式，在jq里如果data为对象会自动将对象转成这种字符串格式
-        var xhr = new XMLHttpRequest();
-        xhr.open(&quot;POST&quot;, url, true);
-        xhr.setRequestHeader(&quot;Content-Type&quot;, &quot;application/x-www-form-urlencoded&quot;);  // 添加http头，发送信息至服务器时内容编码类型
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState == 4 &amp;&amp; (xhr.status == 200 || xhr.status == 304)) {  // 304未修改
-                fn.call(this, xhr.responseText);
-            }
-        };
-        xhr.send(data);
-    }
-}</code><br><strong>注释</strong></p>
+<p><strong>原生js方法实现ajax</strong></p>
+<blockquote>
+<p>var Ajax={<br>    get: function(url, fn) {<br>        var xhr = new XMLHttpRequest();  // XMLHttpRequest对象用于在后台与服务器交换数据<br>        xhr.open(‘GET’, url, true);<br>        xhr.onreadystatechange = function() {<br>            if (xhr.readyState == 4 &amp;&amp; xhr.status == 200 || xhr.status == 304) { // readyState == 4说明请求已完成<br>                fn.call(this, xhr.responseText);  //从服务器获得数据<br>            }<br>        };<br>        xhr.send();<br>    },<br>    post: function (url, data, fn) {         // datat应为’a=a1&amp;b=b1’这种字符串格式，在jq里如果data为对象会自动将对象转成这种字符串格式<br>        var xhr = new XMLHttpRequest();<br>        xhr.open(“POST”, url, true);<br>        xhr.setRequestHeader(“Content-Type”, “application/x-www-form-urlencoded”);  // 添加http头，发送信息至服务器时内容编码类型<br>        xhr.onreadystatechange = function() {<br>            if (xhr.readyState == 4 &amp;&amp; (xhr.status == 200 || xhr.status == 304)) {  // 304未修改<br>                fn.call(this, xhr.responseText);<br>            }<br>        };<br>        xhr.send(data);<br>    }<br>}</p>
+</blockquote>
+<p><strong>注释</strong></p>
 <ol>
 <li>open(method, url, async) 方法需要三个参数:</li>
 </ol>
@@ -221,7 +203,10 @@
 <li><p>setRequestHeader()：POST传数据时，用来添加 HTTP 头，然后send(data)，注意data格式；GET发送信息时直接加参数到url上就可以，比如url?a=a1&amp;b=b1。</p>
 </li>
 </ol>
-<p><strong>jQuery方法实现ajax</strong><br>`$.ajax({<br>    url: ,<br>    type: ‘’,<br>    dataType: ‘’,<br>    data: {</p>
+<p><strong>jQuery方法实现ajax</strong></p>
+<blockquote>
+<p>$.ajax({<br>    url: ,<br>    type: ‘’,<br>    dataType: ‘’,<br>    data: {</p>
+</blockquote>
 <pre><code>},
 success: function(){
 
@@ -229,7 +214,9 @@ success: function(){
 error: function(){
 
 }
-</code></pre><p> })`</p>
+</code></pre><p> })</p>
+<blockquote>
+</blockquote>
 
       
 
