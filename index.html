@@ -255,9 +255,10 @@ filter: alpha(opacity=45);
 .container{
   margin:15px;
 }
-</code></pre><blockquote>
-<p>   <input>隐藏，而单选按钮显示的工作全部交由<label>负责。为了使<label>能模拟单选按钮的各种状态，选中、未选中、点击、禁用等状态，这里采用了比较复杂的CSS写法，大量应用了CSS的伪类和伪元素。<br>例如“.option-radio:checked+label{…}”表示的就是选中状状态下邻近的<label>的显示，此时<label>显示为按钮外面的绿色圆圈边界,而“.option-radio:checked+label:after{…}”表示就是选中状态下<lable>的伪元素after显示为按钮内部的绿色小圆形的显示。依此类推，我们就可以理解未选中、点击和禁用等状态的实现了。<br>值得注意的一点，上一篇有关CSS的文章中提到的伪元素after，这里也有应用，当然应用的关键点，上一篇中已有介绍，就是position的设置，<label>的css position属性设置为“position: relative;”，而其对应的伪元素after的css position属性设置为“position: absolute;”。圆圈和圆饼的显示都是采用的是设置CSS的border 和border-radius属性。<br>这里的自定义显示只是简单的使用了CSS的border 和border-radius属性来完成单选按钮圆形外观的显示，比较中规中矩，其实可以根据需要添加其它各种效果，例如加上各种阴影，让按钮更具立体感。或者在不同的状态下启用不同的背景图片，来做出更具个性的按钮。而实现这些所说的效果，主体代码框架会如上面描述那样，不会大的更改，只需改变CSS的某些属性设置就可以做到。</label></lable></label></label></label></label></p>
+</code></pre><p>效果：<br><img src="https://liwuyao.github.io/2018/03/14/用lable自定义radio/radio.jpg" alt=""></p>
+<blockquote>
 </blockquote>
+<p>把input隐藏，而单选按钮显示的工作全部交由<label>负责。为了使<label>能模拟单选按钮的各种状态，选中、未选中、点击、禁用等状态，这里采用了比较复杂的CSS写法，大量应用了CSS的伪类和伪元素。<br>例如“.option-radio:checked+label{…}”表示的就是选中状状态下邻近的<label>的显示，此时<label>显示为按钮外面的绿色圆圈边界,而“.option-radio:checked+label:after{…}”表示就是选中状态下<lable>的伪元素after显示为按钮内部的绿色小圆形的显示。依此类推，我们就可以理解未选中、点击和禁用等状态的实现了。<br>值得注意的一点，上一篇有关CSS的文章中提到的伪元素after，这里也有应用，当然应用的关键点，上一篇中已有介绍，就是position的设置，<label>的css position属性设置为“position: relative;”，而其对应的伪元素after的css position属性设置为“position: absolute;”。圆圈和圆饼的显示都是采用的是设置CSS的border 和border-radius属性。<br>这里的自定义显示只是简单的使用了CSS的border 和border-radius属性来完成单选按钮圆形外观的显示，比较中规中矩，其实可以根据需要添加其它各种效果，例如加上各种阴影，让按钮更具立体感。或者在不同的状态下启用不同的背景图片，来做出更具个性的按钮。而实现这些所说的效果，主体代码框架会如上面描述那样，不会大的更改，只需改变CSS的某些属性设置就可以做到。</label></lable></label></label></label></label></p>
 
       
 
@@ -1206,11 +1207,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">blog</a>
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+                <a href="javascript:void(0)" class="js-tag color5">blog</a>
               </li>
              
               <li class="article-tag-list-item">
