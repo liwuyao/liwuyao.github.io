@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/03/14/用lable自定义radio/index.html">
 <meta property="og:site_name" content="尧的技术博客">
 <meta property="og:description" content="lable 介绍：label 元素不会向用户呈现任何特殊效果。不过，它为鼠标用户改进了可用性。如果您在 label 元素内点击文本，就会触发此控件。就是说，当用户选择该标签时，浏览器就会自动将焦点转到和标签相关的表单控件上。 用法：&amp;lt;form&amp;gt;     &amp;lt;label for=&amp;quot;male&amp;quot;&amp;gt;Male&amp;lt;/label&amp;gt;     &amp;lt;input">
-<meta property="og:updated_time" content="2018-03-14T02:51:58.689Z">
+<meta property="og:updated_time" content="2018-03-14T02:59:34.676Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用lable自定义radio">
 <meta name="twitter:description" content="lable 介绍：label 元素不会向用户呈现任何特殊效果。不过，它为鼠标用户改进了可用性。如果您在 label 元素内点击文本，就会触发此控件。就是说，当用户选择该标签时，浏览器就会自动将焦点转到和标签相关的表单控件上。 用法：&amp;lt;form&amp;gt;     &amp;lt;label for=&amp;quot;male&amp;quot;&amp;gt;Male&amp;lt;/label&amp;gt;     &amp;lt;input">
@@ -182,7 +182,27 @@
     &lt;label for=&quot;female&quot;&gt;Female&lt;/label&gt;
     &lt;input type=&quot;radio&quot; name=&quot;sex&quot; id=&quot;female&quot; /&gt;
     &lt;/form&gt;</code><br>label里的for与input的id保持一致就能控制相应的radio。</p>
-
+<pre><code>&lt;div  class=&quot;container&quot;&gt;   
+ &lt;form&gt;
+   &lt;input type=&quot;radio&quot; id=&quot;option-0-1&quot; name=&quot;mode&quot; value = &quot;0&quot; class=&quot;option-radio&quot; checked /&gt;
+   &lt;label for=&quot;option-0-1&quot;&gt;&lt;/label&gt;
+   &lt;span class=&quot;&quot;&gt;选项一&lt;/span&gt;    
+   &lt;input type=&quot;radio&quot; id=&quot;option-0-2&quot; name=&quot;mode&quot; value = &quot;1&quot; class=&quot;option-radio&quot; /&gt;
+   &lt;label for=&quot;option-0-2&quot;&gt;&lt;/label&gt;
+   &lt;span class=&quot;&quot;&gt;选项二&lt;/span&gt;    
+ &lt;/form&gt;
+&lt;/div&gt;
+&lt;div  class=&quot;container&quot;&gt;    disable:    
+  &lt;form&gt;        
+    &lt;input type=&quot;radio&quot; id=&quot;option-1-0&quot; name=&quot;mode&quot; value = &quot;0&quot; class=&quot;option-radio&quot; disabled/&gt;
+    &lt;label for=&quot;option-1-0&quot;&gt;&lt;/label&gt;
+    &lt;span class=&quot;&quot;&gt;选项一&lt;/span&gt;        
+    &lt;input type=&quot;radio&quot; id=&quot;option-1-1&quot; name=&quot;mode&quot; value = &quot;1&quot; class=&quot;option-radio&quot; disabled/&gt;
+    &lt;label for=&quot;option-1-1&quot;&gt;&lt;/label&gt;
+    &lt;span class=&quot;&quot;&gt;选项二&lt;/span&gt;    
+  &lt;/form&gt;
+&lt;/div&gt;
+</code></pre>
       
 
       
@@ -417,15 +437,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">blog</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">ajax</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">express</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">blog</a>
               </li>
              
               <li class="article-tag-list-item">
