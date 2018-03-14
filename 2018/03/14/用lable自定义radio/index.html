@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>用lable自定义radio | 尧的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="lable 介绍：label 元素不会向用户呈现任何特殊效果。不过，它为鼠标用户改进了可用性。如果您在 label 元素内点击文本，就会触发此控件。就是说，当用户选择该标签时，浏览器就会自动将焦点转到和标签相关的表单控件上。 用法： &amp;lt;form&amp;gt; &amp;lt;label for=&amp;quot;male&amp;quot;&amp;gt;Male&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;q">
+  <meta name="description" content="lable介绍：label 元素不会向用户呈现任何特殊效果。不过，它为鼠标用户改进了可用性。如果您在 label 元素内点击文本，就会触发此控件。就是说，当用户选择该标签时，浏览器就会自动将焦点转到和标签相关的表单控件上。用法：        Male            Female         label里的for与input的id保持一致就能控制相应的radio。用lable自定义ra">
 <meta name="keywords" content="css">
 <meta property="og:type" content="article">
 <meta property="og:title" content="用lable自定义radio">
 <meta property="og:url" content="http://yoursite.com/2018/03/14/用lable自定义radio/index.html">
 <meta property="og:site_name" content="尧的技术博客">
-<meta property="og:description" content="lable 介绍：label 元素不会向用户呈现任何特殊效果。不过，它为鼠标用户改进了可用性。如果您在 label 元素内点击文本，就会触发此控件。就是说，当用户选择该标签时，浏览器就会自动将焦点转到和标签相关的表单控件上。 用法： &amp;lt;form&amp;gt; &amp;lt;label for=&amp;quot;male&amp;quot;&amp;gt;Male&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;q">
+<meta property="og:description" content="lable介绍：label 元素不会向用户呈现任何特殊效果。不过，它为鼠标用户改进了可用性。如果您在 label 元素内点击文本，就会触发此控件。就是说，当用户选择该标签时，浏览器就会自动将焦点转到和标签相关的表单控件上。用法：        Male            Female         label里的for与input的id保持一致就能控制相应的radio。用lable自定义ra">
 <meta property="og:image" content="https://liwuyao.github.io/2018/03/14/用lable自定义radio/radio.jpg">
-<meta property="og:updated_time" content="2018-03-14T03:42:34.451Z">
+<meta property="og:updated_time" content="2018-03-14T03:43:49.456Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用lable自定义radio">
-<meta name="twitter:description" content="lable 介绍：label 元素不会向用户呈现任何特殊效果。不过，它为鼠标用户改进了可用性。如果您在 label 元素内点击文本，就会触发此控件。就是说，当用户选择该标签时，浏览器就会自动将焦点转到和标签相关的表单控件上。 用法： &amp;lt;form&amp;gt; &amp;lt;label for=&amp;quot;male&amp;quot;&amp;gt;Male&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;q">
+<meta name="twitter:description" content="lable介绍：label 元素不会向用户呈现任何特殊效果。不过，它为鼠标用户改进了可用性。如果您在 label 元素内点击文本，就会触发此控件。就是说，当用户选择该标签时，浏览器就会自动将焦点转到和标签相关的表单控件上。用法：        Male            Female         label里的for与input的id保持一致就能控制相应的radio。用lable自定义ra">
 <meta name="twitter:image" content="https://liwuyao.github.io/2018/03/14/用lable自定义radio/radio.jpg">
   
     <link rel="alternative" href="/atom.xml" title="尧的技术博客" type="application/atom+xml">
@@ -176,18 +176,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>lable</strong></p>
-<p>介绍：<br>label 元素不会向用户呈现任何特殊效果。不过，它为鼠标用户改进了可用性。如果您在 label 元素内点击文本，就会触发此控件。<br>就是说，当用户选择该标签时，浏览器就会自动将焦点转到和标签相关的表单控件上。</p>
-<p>用法：</p>
-<pre><code>&lt;form&gt;
-&lt;label for=&quot;male&quot;&gt;Male&lt;/label&gt;
-&lt;input type=&quot;radio&quot; name=&quot;sex&quot; id=&quot;male&quot; /&gt;
-&lt;br /&gt;
-&lt;label for=&quot;female&quot;&gt;Female&lt;/label&gt;
-&lt;input type=&quot;radio&quot; name=&quot;sex&quot; id=&quot;female&quot; /&gt;
-&lt;/form&gt;
-</code></pre><p>label里的for与input的id保持一致就能控制相应的radio。</p>
-<p>用lable自定义radio，html部分不变，主要是css部分，要隐藏掉radio；</p>
+        <p><strong>lable</strong><br>介绍：<br>label 元素不会向用户呈现任何特殊效果。不过，它为鼠标用户改进了可用性。如果您在 label 元素内点击文本，就会触发此控件。<br>就是说，当用户选择该标签时，浏览器就会自动将焦点转到和标签相关的表单控件上。<br>用法：<br>    <form><br>    <label for="male">Male</label><br>    <input type="radio" name="sex" id="male"><br>    <br><br>    <label for="female">Female</label><br>    <input type="radio" name="sex" id="female"><br>    </form></p>
+<p>label里的for与input的id保持一致就能控制相应的radio。<br>用lable自定义radio，html部分不变，主要是css部分，要隐藏掉radio；</p>
 <p>html部分<br><a id="more"></a><br>    <div class="container"><br>     <form><br>       <input type="radio" id="option-0-1" name="mode" value="0" class="option-radio" checked><br>       <label for="option-0-1"></label><br>       <span class="">选项一</span><br>       <input type="radio" id="option-0-2" name="mode" value="1" class="option-radio"><br>       <label for="option-0-2"></label><br>       <span class="">选项二</span><br>     </form><br>    </div><br>    <div class="container">    disable:<br>      <form><br>        <input type="radio" id="option-1-0" name="mode" value="0" class="option-radio" disabled><br>        <label for="option-1-0"></label><br>        <span class="">选项一</span><br>        <input type="radio" id="option-1-1" name="mode" value="1" class="option-radio" disabled><br>        <label for="option-1-1"></label><br>        <span class="">选项二</span><br>      </form><br>    </div></p>
 <p>css部分</p>
 <pre><code>.option-radio{
