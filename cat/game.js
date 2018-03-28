@@ -1,5 +1,5 @@
 //开始游戏
-document.getElementById('start').ontouchstart=function(e){
+document.getElementById('start').onclick=function(e){
 	var event = e || event;
 	event.stopPropagation()
 	start();
@@ -101,14 +101,13 @@ Self.prototype.dogDown=function(){
 		jumpStatu = true;
 		var elm = this.element
 		var y=dogY;
-		var oldY = this.y 
+		var oldY = this.map.height-this.height 
 		var time = times*20;
 		dogDownTime=setInterval(()=>{
 			y+=2;
 			dogY=y;
 			if(y === oldY){
 				y = oldY;
-				jumpNum++
 //				console.log("c"+catNum)
 //				console.log("j"+jumpNum)
 //				if(jumpNum>=catNums){
@@ -118,6 +117,7 @@ Self.prototype.dogDown=function(){
 //				}
 				clearInterval(dogDownTime);
 //				scoreElem.innerHTML = "得分："+ score;
+				gameOver(obstacleMove);
 			}
 			css(elm, {
 			top : y + "px"
@@ -147,42 +147,44 @@ function obstacle(options){
 // 继承方法
 obstacle.prototype = new Role();
 //障碍物的私有方法  动画
+var obstacleMove;
 obstacle.prototype.animation=function(){
 	var elm = this.element;
 	var width = this.element.offsetWidth;
 	var height = this.element.clientHeight;
 	var scoreElem = document.getElementById('score');
 	var x = this.x;
-	var move=setInterval(()=>{
+	var move = setInterval(()=>{
 		x -= 1;
 		css(elm, {
 			left : x + "px"
 		});
 		if(x<-this.width){
-			clearInterval(move);
 			if(elm){
 				this.map.element.removeChild(elm);
 			}
+			clearInterval(move);
 		}
 		var limitY = dogY - this.y
 		if(x< 120  && x >70-this.width  && limitY >= -_self.height && limitY <= this.height){
-			clearInterval(move);
-			clearInterval(creatObstacle);
-			clearInterval(dogDownTime);
-			clearInterval(jumpTime);
-			if(statu){
-				var div = document.createElement('div')
-				div.id="over";
-				div.innerHTML='GAME OVER';
-				div.ontouchstart=function(e){
-					var event = e || event;
-					event.stopPropagation()
-					start();
-				};
-				this.map.element.appendChild(div);
-				this.map.element.removeChild(_self.element);
-				statu = false;
-			}
+//			if(statu){
+//				clearInterval(move);
+//				clearInterval(creatObstacle);
+//				clearInterval(dogDownTime);
+//				clearInterval(jumpTime);
+//				var div = document.createElement('div')
+//				div.id="over";
+//				div.innerHTML='GAME OVER';
+//				div.ontouchstart=function(e){
+//					var event = e || event;
+//					event.stopPropagation()
+//					start();
+//				};
+//				this.map.element.appendChild(div);
+//				this.map.element.removeChild(_self.element);
+//				statu = false;
+//			}
+			gameOver(move)
 		}
 		if(x==70-this.width){
 			catNums ++;
@@ -190,6 +192,7 @@ obstacle.prototype.animation=function(){
 			scoreElem.innerHTML = "得分："+ score;
 		}
 	},10)
+	obstacleMove = move;
 //	geme over 函数
 }
 
@@ -199,25 +202,27 @@ var _self;
 var creatObstacle;
 var statu = false;
 var ground = document.getElementById("back-ground");
+var overElm = document.getElementById("over")
 var mapWidth;
 var groundTime;
 var catNums;
 var catImgs=[
-	{src:"image/cat-img/cat.png",width:50,height:50,value:1},
-	{src:"image/cat-img/cat_01.png",width:100,height:110,value:0},
-	{src:"image/cat-img/cat_02.png",width:60,height:70,value:0},
-	{src:"image/cat-img/cat_03.png",width:30,height:40,value:0},
-	{src:"image/cat-img/cat_04.png",width:70,height:90,value:0},
-	{src:"image/cat-img/cat_05.png",width:20,height:30,value:0}
+	{src:"image/cat-img/cat.png",width:150,height:75,value:1},
+	{src:"image/cat-img/cat_01.png",width:100,height:50,value:0},
+	{src:"image/cat-img/cat_02.png",width:120,height:60,value:0},
+	{src:"image/cat-img/cat_03.png",width:60,height:30,value:0},
+	{src:"image/cat-img/cat_04.png",width:70,height:30,value:0},
+	{src:"image/cat-img/cat_05.png",width:40,height:20,value:0}
 ];
 function start(){
 	jumpNum=0;
 	catNums=0;
 	score=0;
 	statu = true;
+	overElm.innerHTML="";
 	clearInterval(jumpTime);
 	clearInterval(groundTime);
-	jumpStatu=true;
+	jumpStatu=false;
 	document.getElementById('score').innerHTML ="得分：0"
 	var _map = new Map();
 		_map.element.innerHTML="";
@@ -229,10 +234,11 @@ function start(){
 	_self.map = _map;
 	score = 0;
 //	设置狗的初始高度
-	_self.y = _map.height-_self.height;
+	_self.y = _map.height-_self.height-300;
 	// 初始化显示地图
 	_self.init();
 	dogY = _self.y;
+	_self.dogDown();
 //	背景动画
 	backGroundAnimation();
 	
@@ -252,7 +258,7 @@ function start(){
     	cat.x = _map.width;
     	cat.init();
     	cat.animation();
-    },2000)
+    },1500)
 	document.ontouchstart=function(e){
 		var event = e || event;
 		 event.preventDefault();
@@ -265,7 +271,23 @@ function start(){
 //		}
 	}
 }
-
+//游戏结束函数
+function gameOver(move){
+	if(statu){
+				clearInterval(move);
+				clearInterval(creatObstacle);
+				clearInterval(dogDownTime);
+				clearInterval(jumpTime);
+				overElm.innerHTML='GAME OVER';
+				overElm.ontouchstart=function(e){
+					var event = e || event;
+					event.stopPropagation()
+					start();
+				};
+				_self.map.element.removeChild(_self.element);
+				statu = false;
+			}
+}
 //背景图动画
 var backImgs = document.querySelectorAll("#back-ground img");
 var imgWidth = backImgs[0].offsetWidth;
