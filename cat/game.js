@@ -47,8 +47,8 @@ Role.prototype.init = function(){
 
 function Self(options) {
 	var defaultOptions = {
-		width : 100,
-		height : 100,
+		width : 50,
+		height : 50,
 		img:"image/dog.png",
 		x : 70,
 		y : 450,
@@ -203,12 +203,12 @@ var mapWidth;
 var groundTime;
 var catNums;
 var catImgs=[
-	{src:"image/cat-img/cat.png",width:100,height:150,value:1},
-	{src:"image/cat-img/cat_01.png",width:150,height:170,value:0},
-	{src:"image/cat-img/cat_02.png",width:90,height:110,value:0},
-	{src:"image/cat-img/cat_03.png",width:200,height:210,value:0},
-	{src:"image/cat-img/cat_04.png",width:100,height:110,value:0},
-	{src:"image/cat-img/cat_05.png",width:60,height:90,value:0}
+	{src:"image/cat-img/cat.png",width:50,height:50,value:1},
+	{src:"image/cat-img/cat_01.png",width:100,height:110,value:0},
+	{src:"image/cat-img/cat_02.png",width:60,height:70,value:0},
+	{src:"image/cat-img/cat_03.png",width:30,height:40,value:0},
+	{src:"image/cat-img/cat_04.png",width:70,height:90,value:0},
+	{src:"image/cat-img/cat_05.png",width:20,height:30,value:0}
 ];
 function start(){
 	jumpNum=0;
@@ -267,11 +267,14 @@ function start(){
 }
 
 //背景图动画
-var imgWidth = document.querySelectorAll("#back-ground img")[0].offsetWidth;
+var backImgs = document.querySelectorAll("#back-ground img");
+var imgWidth = backImgs[0].offsetWidth;
  		var groundwidth = imgWidth*2
 // 		var startTime = +new Date();
  		css(ground, {
-				width : groundwidth+ "px"
+				width : groundwidth+ "px",
+//				display: "flex",
+//				flexDirection: "row"
 			});
  function backGroundAnimation(){
 		var groundX=0;
