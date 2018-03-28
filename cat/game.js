@@ -1,8 +1,14 @@
-
+//开始游戏
+document.getElementById('start').ontouchstart=function(e){
+	var event = e || event;
+	event.stopPropagation()
+	start();
+}
 function Map() {
-	this.width = 300;
-	this.height = 500;
-	this.element = document.querySelector('.game-box');
+	var box=document.querySelector('.game-box');
+	this.width = box.offsetWidth;
+	this.height = box.offsetHeight;
+	this.element = box;
 } 
 
 // 游戏角色构造函数
@@ -41,8 +47,8 @@ Role.prototype.init = function(){
 
 function Self(options) {
 	var defaultOptions = {
-		width : 50,
-		height : 50,
+		width : 100,
+		height : 100,
 		img:"image/dog.png",
 		x : 70,
 		y : 450,
@@ -75,7 +81,7 @@ Self.prototype.jump=function(){
 		var y=dogY;
 		jumpTime=setInterval(()=>{
 			times++;
-			y -= 1;
+			y -= 2;
 			dogY=y;
 			css(elm, {
 			top : y + "px"
@@ -98,7 +104,7 @@ Self.prototype.dogDown=function(){
 		var oldY = this.y 
 		var time = times*20;
 		dogDownTime=setInterval(()=>{
-			y+=1;
+			y+=2;
 			dogY=y;
 			if(y === oldY){
 				y = oldY;
@@ -168,7 +174,9 @@ obstacle.prototype.animation=function(){
 				var div = document.createElement('div')
 				div.id="over";
 				div.innerHTML='GAME OVER';
-				div.onclick=function(){
+				div.ontouchstart=function(e){
+					var event = e || event;
+					event.stopPropagation()
 					start();
 				};
 				this.map.element.appendChild(div);
@@ -195,12 +203,12 @@ var mapWidth;
 var groundTime;
 var catNums;
 var catImgs=[
-	{src:"image/cat-img/cat.png",width:50,height:50,value:1},
-	{src:"image/cat-img/cat_01.png",width:50,height:60,value:0},
-	{src:"image/cat-img/cat_02.png",width:20,height:30,value:0},
-	{src:"image/cat-img/cat_03.png",width:70,height:80,value:0},
+	{src:"image/cat-img/cat.png",width:100,height:150,value:1},
+	{src:"image/cat-img/cat_01.png",width:150,height:170,value:0},
+	{src:"image/cat-img/cat_02.png",width:90,height:110,value:0},
+	{src:"image/cat-img/cat_03.png",width:200,height:210,value:0},
 	{src:"image/cat-img/cat_04.png",width:100,height:110,value:0},
-	{src:"image/cat-img/cat_05.png",width:10,height:20,value:0}
+	{src:"image/cat-img/cat_05.png",width:60,height:90,value:0}
 ];
 function start(){
 	jumpNum=0;
@@ -220,6 +228,8 @@ function start(){
 	// 建立飞机对象与地图的关联关系
 	_self.map = _map;
 	score = 0;
+//	设置狗的初始高度
+	_self.y = _map.height-_self.height;
 	// 初始化显示地图
 	_self.init();
 	dogY = _self.y;
@@ -239,39 +249,43 @@ function start(){
     	cat.height=catInformation.height;
     	var catY = Math.floor(Math.random()*(mapHeight-cat.height));
     	cat.y = catY;
+    	cat.x = _map.width;
     	cat.init();
     	cat.animation();
-    },1000)
-	document.onkeypress=function(e){
+    },2000)
+	document.ontouchstart=function(e){
 		var event = e || event;
 		 event.preventDefault();
-		var code = event.keyCode
-		if(code === 32){
+//		var code = event.keyCode
+//		if(code === 32){
 			_self.jump();
-			document.onkeyup=function(){
+			document.ontouchend=function(){
 				_self.dogDown();
 			}
-		}
+//		}
 	}
 }
 
 //背景图动画
- function backGroundAnimation(){
- 	var imgWidth = document.querySelectorAll("#back-ground img")[0].offsetWidth;
+var imgWidth = document.querySelectorAll("#back-ground img")[0].offsetWidth;
  		var groundwidth = imgWidth*2
+// 		var startTime = +new Date();
  		css(ground, {
 				width : groundwidth+ "px"
 			});
+ function backGroundAnimation(){
 		var groundX=0;
 		groundTime=setInterval(()=>{
-			groundX--;
+//			var elapsed = +new Date() - startTime;
+			 groundX -=0.5
 			css(ground, {
 				left : groundX + "px"
-				});
+			});
 			if(groundX <= -imgWidth){
 				groundX = 0;
+//				startTime = +new Date() 
 			}
-		},10)
+		},5)
  }
 //工具
 function css(element, attr, value) {
