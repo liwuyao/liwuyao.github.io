@@ -1,5 +1,5 @@
 //开始游戏
-document.getElementById('start').onclick=function(e){
+document.getElementById('start').ontouchstart=function(e){
 	var event = e || event;
 	event.stopPropagation()
 	start();
@@ -279,13 +279,13 @@ function gameOver(move){
 				clearInterval(dogDownTime);
 				clearInterval(jumpTime);
 				overElm.innerHTML='GAME OVER';
+				_self.map.element.removeChild(_self.element);
+				statu = false;
 				overElm.ontouchstart=function(e){
 					var event = e || event;
 					event.stopPropagation()
 					start();
 				};
-				_self.map.element.removeChild(_self.element);
-				statu = false;
 			}
 }
 //背景图动画
