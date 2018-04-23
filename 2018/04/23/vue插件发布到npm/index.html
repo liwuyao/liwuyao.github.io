@@ -6,27 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>用hexo和github搭建博客 | 尧的技术博客</title>
+  <title>&#39;vue插件发布到npm&#39; | 尧的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="详细步骤 一、github去申请一个github账户，注意最好有英文格式的游戏，而不是像qq号加@那种。Git需要配置ssh钥匙 git的操作步骤，步骤如下： 在git（需要安装，百度一下就知道），输入git config –global user.name “superGG1990”，用来设置自己的get用户名，superGG1990就是你自己的名字（记得更改）， 在git输入git confi">
-<meta name="keywords" content="blog">
+  <meta name="description" content="原理是利用vue提供的插件功能。 ##详细步骤 一、创建vue插件 新建一个vue项目，结构目录如下      lib里面存放的就是自己写的组件；index的内容就是vue插件功能；import VueComment from &amp;#39;./VueComment.vue&amp;#39; const comment = {   install: function(Vue) {     Vue.compon">
+<meta name="keywords" content="vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="用hexo和github搭建博客">
-<meta property="og:url" content="http://yoursite.com/2018/02/26/blog-build/index.html">
+<meta property="og:title" content="&#39;vue插件发布到npm&#39;">
+<meta property="og:url" content="http://yoursite.com/2018/04/23/vue插件发布到npm/index.html">
 <meta property="og:site_name" content="尧的技术博客">
-<meta property="og:description" content="详细步骤 一、github去申请一个github账户，注意最好有英文格式的游戏，而不是像qq号加@那种。Git需要配置ssh钥匙 git的操作步骤，步骤如下： 在git（需要安装，百度一下就知道），输入git config –global user.name “superGG1990”，用来设置自己的get用户名，superGG1990就是你自己的名字（记得更改）， 在git输入git confi">
-<meta property="og:image" content="https://liwuyao.github.io/2018/02/26/blog-build/new_repository.jpg">
-<meta property="og:image" content="https://liwuyao.github.io/2018/02/26/blog-build/new_repository2.jpg">
-<meta property="og:image" content="https://liwuyao.github.io/2018/02/26/blog-build/new_repository3.jpg">
-<meta property="og:image" content="https://liwuyao.github.io/2018/02/26/blog-build/new_repository4.jpg">
-<meta property="og:image" content="https://liwuyao.github.io/2018/02/26/blog-build/new_repository7.png">
-<meta property="og:image" content="https://liwuyao.github.io/2018/02/26/blog-build/new_repository5.jpg">
-<meta property="og:image" content="https://liwuyao.github.io/2018/02/26/blog-build/new_repository6.png">
-<meta property="og:updated_time" content="2018-02-27T02:23:06.259Z">
+<meta property="og:description" content="原理是利用vue提供的插件功能。 ##详细步骤 一、创建vue插件 新建一个vue项目，结构目录如下      lib里面存放的就是自己写的组件；index的内容就是vue插件功能；import VueComment from &amp;#39;./VueComment.vue&amp;#39; const comment = {   install: function(Vue) {     Vue.compon">
+<meta property="og:image" content="https://liwuyao.github.io/2018/02/26/vue插件发布到npm/img1.jpg">
+<meta property="og:updated_time" content="2018-04-23T06:54:14.794Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="用hexo和github搭建博客">
-<meta name="twitter:description" content="详细步骤 一、github去申请一个github账户，注意最好有英文格式的游戏，而不是像qq号加@那种。Git需要配置ssh钥匙 git的操作步骤，步骤如下： 在git（需要安装，百度一下就知道），输入git config –global user.name “superGG1990”，用来设置自己的get用户名，superGG1990就是你自己的名字（记得更改）， 在git输入git confi">
-<meta name="twitter:image" content="https://liwuyao.github.io/2018/02/26/blog-build/new_repository.jpg">
+<meta name="twitter:title" content="&#39;vue插件发布到npm&#39;">
+<meta name="twitter:description" content="原理是利用vue提供的插件功能。 ##详细步骤 一、创建vue插件 新建一个vue项目，结构目录如下      lib里面存放的就是自己写的组件；index的内容就是vue插件功能；import VueComment from &amp;#39;./VueComment.vue&amp;#39; const comment = {   install: function(Vue) {     Vue.compon">
+<meta name="twitter:image" content="https://liwuyao.github.io/2018/02/26/vue插件发布到npm/img1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="尧的技术博客" type="application/atom+xml">
   
@@ -162,59 +156,100 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-blog-build" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-vue插件发布到npm" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      用hexo和github搭建博客
+      &#39;vue插件发布到npm&#39;
     </h1>
   
 
         
-        <a href="/2018/02/26/blog-build/" class="archive-article-date">
-  	<time datetime="2018-02-26T06:43:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-26</time>
+        <a href="/2018/04/23/vue插件发布到npm/" class="archive-article-date">
+  	<time datetime="2018-04-23T06:10:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-23</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="详细步骤"><a href="#详细步骤" class="headerlink" title="详细步骤"></a>详细步骤</h2><p> 一、github<br>去申请一个github账户，注意最好有英文格式的游戏，而不是像qq号加@那种。<br>Git需要配置ssh钥匙</p>
-<p>git的操作步骤，步骤如下：</p>
-<p>在git（需要安装，百度一下就知道），输入git config –global user.name “superGG1990”，用来设置自己的get用户名，<br>superGG1990就是你自己的名字（记得更改），</p>
-<p>在git输入git config –global user.email “<a href="mailto:superGG1990@163.com" target="_blank" rel="noopener">superGG1990@163.com</a>“，用来关联你的邮箱，这个邮箱就是注册的github的邮箱，<br> 然后去找到生成ssh钥密的文件，一般在c/user/.ssh/,文件名叫id_dsa.pub，复制里面的钥密（全部复制），在github上配置。（具体一些细则请百度）；</p>
-<p>登陆之后，点击页面右上角的加号，选择New repository：</p>
-<p><img src="https://liwuyao.github.io/2018/02/26/blog-build/new_repository.jpg" alt="">    </p>
-<a id="more"></a>
-<p>新建代码库：<br>进入代码库创建页面<br>在Repository name下填写yourname.github.io，Description (optional)下填写一些简单的描述（不写也没有关系），如图所示：</p>
-<p><img src="https://liwuyao.github.io/2018/02/26/blog-build/new_repository2.jpg" alt="">    </p>
-<p><strong>注意：比如我的github名称是李伍尧 ,这里你就填 gdutxiaoxu.github.io,如果你的名字是xujun，那你就填 xujun.github.io</strong></p>
-<p>代码库的设置：</p>
-<p>接下来开启gh-pages功能，进入刚才创建的库，点击界面右侧的Settings，你将会打开这个库的setting页面，向下拖动，直到看见GitHub Pages，如图：</p>
-<p><img src="https://liwuyao.github.io/2018/02/26/blog-build/new_repository3.jpg" alt=""></p>
-<p>Github pages</p>
-<p><img src="https://liwuyao.github.io/2018/02/26/blog-build/new_repository4.jpg" alt=""></p>
-<p>点击Automatic page generator，Github将会自动替你创建出一个gh-pages的页面。 如果你的配置没有问题，那么大约15分钟之后，yourname.github.io这个网址就可以正常访问了~ 如果yourname.github.io已经可以正常访问了，那么Github一侧的配置已经全部结束了。</p>
-<p>到此搭建hexo博客的相关环境配置已经完成，下面开始讲解Hexo的相关配置</p>
-<p>二、hexo</p>
-<p><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">hexo文档地址</a><br>按照官方文档安装好hexo</p>
-<p>安装好后，接下来是对hexo的相关配置</p>
-<p>在_config.yml进行如下配置：</p>
-<p><img src="https://liwuyao.github.io/2018/02/26/blog-build/new_repository7.png" alt=""></p>
-<p>在cdm的输入<br><code>hexo init</code><br>此命令是用来生成静态文件<br>然后输入<br><code>hexo s</code><br>此命令是启动服务</p>
-<p>在浏览器中打开<a href="http://localhost:4000/，你将会看到：" target="_blank" rel="noopener">http://localhost:4000/，你将会看到：</a></p>
-<p><img src="https://liwuyao.github.io/2018/02/26/blog-build/new_repository5.jpg" alt=""></p>
-<p>这是在本地浏览是否成功。</p>
-<p>如果你想换个主题（主题指整个网站的样式，布局）,先去网上找好别人做的的主题，我用的是yilia这个主题，下好主题后，将主题放入themes,<br>然后在博客的根目录下的_config.yml文件中找到theme，将参数改成你所找的主题，如图：</p>
-<p><img src="https://liwuyao.github.io/2018/02/26/blog-build/new_repository6.png" alt=""></p>
-<p>安装hexo-deployer-git自动部署发布工具<br><code>npm instal lhexo-deployer-git  --save</code><br>最后发布到hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</p>
-<p><strong>补充hexo的命令</strong></p>
-<p>新建文章<br><code>hexo new &quot;name&quot;</code><br>如hexo new “hello-world“<br>执行此命令后会在根目录下创建一个name.md的文件。次文件就是用来写博客的。在写博客之前得知道些markdown的语法。</p>
-<p>新建文件夹<br><code>hexo new page &quot;photo&quot;</code><br>执行此命令后会在根目录的source生成文件夹。在生成静态文件后，文件夹的位置会变到根目录下（public文件夹里存放的是静态文件）</p>
-<p>其他hexo的相关操作，请参考hexo的官方文档。</p>
+        <p>原理是利用vue提供的插件功能。</p>
+<p>##详细步骤</p>
+<p><strong>一、创建vue插件</strong></p>
+<p>新建一个vue项目，结构目录如下</p>
+<p><img src="https://liwuyao.github.io/2018/02/26/vue插件发布到npm/img1.jpg" alt="">    </p>
+<p>lib里面存放的就是自己写的组件；<br>index的内容就是vue插件功能；<br><code>import VueComment from &#39;./VueComment.vue&#39;
+const comment = {
+  install: function(Vue) {
+    Vue.component(VueComment.name, VueComment)
+  }
+}
+// global 情况下 自动安装
+if (typeof window !== &#39;undefined&#39; &amp;&amp; window.Vue) { 
+    window.Vue.use(comment) 
+}
+// 导出模块
+export default comment</code><br><strong>二、修改package.json</strong></p>
+<p><code>{
+  &quot;name&quot;: &quot;mini-sliders&quot;,
+  &quot;description&quot;: &quot;vue轮播图组件&quot;,
+  &quot;version&quot;: &quot;1.0.1&quot;,
+  &quot;author&quot;: &quot;Echo-lu &lt;echo_lcp@163.com&gt;&quot;,
+  // 配置main结点，如果不配置，我们在其他项目中就不用import XX from &#39;包名&#39;来引用了，只能以包名作为起点来指定相对的路径
+  &quot;main&quot;:&quot;dist/vue-slider.js&quot;,
+  //开源协议
+  &quot;license&quot;: &quot;MIT&quot;,
+  // 因为组件包是公用的，所以private为false
+  &quot;private&quot;: false,
+  &quot;scripts&quot;: {
+    &quot;dev&quot;: &quot;cross-env NODE_ENV=development webpack-dev-server --open --hot&quot;,
+    &quot;build&quot;: &quot;cross-env NODE_ENV=production webpack --progress --hide-modules&quot;
+  },
+ // 指定代码所在的仓库地址
+ &quot;repository&quot;: {
+ &quot;type&quot;: &quot;git&quot;,
+ &quot;url&quot;: &quot;git+https://github.com/echo-lu/mini-sliders.git&quot;
+ },
+  &quot;dependencies&quot;: {
+    &quot;vue&quot;: &quot;^2.5.11&quot;
+  },
+  &quot;browserslist&quot;: [
+    &quot;&gt; 1%&quot;,
+    &quot;last 2 versions&quot;,
+    &quot;not ie &lt;= 8&quot;
+  ],
+// 指定关键字
+ &quot;keywords&quot;: [
+ &quot;vue&quot;,
+ &quot;slider&quot;
+ ],
+  // 项目官网的url
+ &quot;homepage&quot;: &quot;https://github.com/echo-lu/mini-sliders/blob/master/README.md&quot;,
+  &quot;devDependencies&quot;: {
+    ...
+  }
+}</code><br><strong>三、修改webpack.config</strong><br><code>entry: &#39;./src/lib/index.js&#39;,
+output: {
+    path: path.resolve(__dirname, &#39;./dist&#39;),
+    publicPath: &#39;/dist/&#39;,
+    // filename: &#39;build.js&#39;
+    filename: &#39;vue-slider.js&#39;,
+    library: &#39;VueSlider&#39;,
+    libraryTarget: &#39;umd&#39;,
+    umdNamedDefine: true</code></p>
+<p>完整的webpack.config:<br>`<br>var path = require(‘path’)<br>var webpack = require(‘webpack’)</p>
+<p>module.exports = {<br>    // entry: ‘./src/main.js’,<br>  entry: ‘./src/lib/index.js’,<br>  output: {<br>    path: path.resolve(__dirname, ‘./dist’),<br>    publicPath: ‘/dist/‘,<br>    // filename: ‘build.js’<br>    filename: ‘vue-slider.js’,<br>    library: ‘VueSlider’,<br>    libraryTarget: ‘umd’,<br>    umdNamedDefine: true<br>  },<br>  module: {<br>    rules: [<br>      {<br>        test: /.css$/,<br>        use: [<br>          ‘vue-style-loader’,<br>          ‘css-loader’<br>        ],<br>      },      {<br>        test: /.vue$/,<br>        loader: ‘vue-loader’,<br>        options: {<br>          loaders: {<br>          }<br>          // other vue-loader options go here<br>        }<br>      },<br>      {<br>        test: /.js$/,<br>        loader: ‘babel-loader’,<br>        exclude: /node_modules/<br>      },<br>      {<br>        test: /.(png|jpg|gif|svg)$/,<br>        loader: ‘file-loader’,<br>        options: {<br>          name: ‘[name].[ext]?[hash]’<br>        }<br>      }<br>    ]<br>  },<br>  resolve: {<br>    alias: {<br>      ‘vue$’: ‘vue/dist/vue.esm.js’<br>    },<br>    extensions: [‘*’, ‘.js’, ‘.vue’, ‘.json’]<br>  },<br>  devServer: {<br>    historyApiFallback: true,<br>    noInfo: true,<br>    overlay: true<br>  },<br>  performance: {<br>    hints: false<br>  },<br>  devtool: ‘#eval-source-map’<br>}</p>
+<p>if (process.env.NODE_ENV === ‘production’) {<br>  module.exports.devtool = ‘#source-map’<br>  // <a href="http://vue-loader.vuejs.org/en/workflow/production.html" target="_blank" rel="noopener">http://vue-loader.vuejs.org/en/workflow/production.html</a><br>  module.exports.plugins = (module.exports.plugins || []).concat([<br>    new webpack.DefinePlugin({<br>      ‘process.env’: {<br>        NODE_ENV: ‘“production”‘<br>      }<br>    }),<br>    new webpack.optimize.UglifyJsPlugin({<br>      sourceMap: true,<br>      compress: {<br>        warnings: false<br>      }<br>    }),<br>    new webpack.LoaderOptionsPlugin({<br>      minimize: true<br>    })<br>  ])<br>}<br>`<br><strong>四、修改gitignore</strong><br>因为要用dist文件夹，所以在.gitignore文件中把dist/去掉。</p>
+<p><strong>五、测试</strong><br>首先，打包到本地<br>npm run build<br>npm pack<br>npm pack 之后，就会在当前目录下生成 一个tgz 的文件。<br>打开一个新的vue项目，在当前路径下执行(‘路径’ 表示文件所在的位置)<br>npm install 路径/组件名称.tgz<br>然后，在新项目的入口文件（main.js）中引入</p>
+<p><code>import 变量名 from &#39;组件名称&#39;
+Vue.use(变量名)</code></p>
+<p><strong>六、发布</strong><br>1.在 npm官网 注册一个npm账号<br>2.切换到需要发包的项目根目录下，npm login登录npm账号，输入用户名、密码、邮箱<br>3.最后一步，执行npm publish即可</p>
+<p><strong>注意事项</strong><br>记得安装cross-env；<br>它的作用：运行跨平台设置和使用环境变量的脚本；<br>出现原因：当您使用NODE_ENV =production, 来设置环境变量时，大多数Windows命令提示将会阻塞(报错)。 （异常是Windows上的Bash，它使用本机Bash。）同样，Windows和POSIX命令如何使用环境变量也有区别。 使用POSIX，您可以使用：$ ENV_VAR和使用％ENV_VAR％的Windows。<br>说人话：windows不支持NODE_ENV=development的设置方式。会报错<br>安装命令：npm install –save-dev cross-env；</p>
+<p>最好用我写的webpack.config;用vue-cli的改会有问题；期初我用的时候改了半天还是各种问题（可能是我webpack只是入门级的原因，用得6的可以自己去改）；</p>
+<p>在组件中用标签引用的时候，就是use里的内容作为标签名；</p>
 
       
 
@@ -249,7 +284,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">blog</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
         		</li>
       		
 		</ul>
@@ -305,7 +340,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/02/26/blog-build/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/04/23/vue插件发布到npm/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -319,18 +354,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/02/27/ajax/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          ajax的介绍及使用
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/02/23/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">帅尧的博客</div>
+    <a href="/2018/03/14/用lable自定义radio/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">用lable自定义radio</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -360,7 +386,7 @@
   
 
   
-  <div id="SOHUCS" sid="blog-build" ></div> 
+  <div id="SOHUCS" sid="vue插件发布到npm" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
