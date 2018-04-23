@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>&#39;vue插件发布到npm&#39; | 尧的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="原理是利用vue提供的插件功能。 ###详细步骤 一、创建vue插件 新建一个vue项目，结构目录如下      lib里面存放的就是自己写的组件；index的内容就是vue插件功能； import VueComment from &amp;#39;./VueComment.vue&amp;#39; const comment = {   install: function(Vue) {     Vue.comp">
+  <meta name="description" content="原理是利用vue提供的插件功能。 ###详细步骤 一、创建vue插件 新建一个vue项目，结构目录如下      lib里面存放的就是自己写的组件； index的内容就是vue插件功能；  import VueComment from &amp;apos;./VueComment.vue&amp;apos; const comment = {   install: function(Vue) {     Vue.">
 <meta name="keywords" content="vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="&#39;vue插件发布到npm&#39;">
 <meta property="og:url" content="http://yoursite.com/2018/04/23/vue插件发布到npm/index.html">
 <meta property="og:site_name" content="尧的技术博客">
-<meta property="og:description" content="原理是利用vue提供的插件功能。 ###详细步骤 一、创建vue插件 新建一个vue项目，结构目录如下      lib里面存放的就是自己写的组件；index的内容就是vue插件功能； import VueComment from &amp;#39;./VueComment.vue&amp;#39; const comment = {   install: function(Vue) {     Vue.comp">
-<meta property="og:image" content="https://liwuyao.github.io/2018/02/26/vue插件发布到npm/img1.jpg">
-<meta property="og:updated_time" content="2018-04-23T07:00:04.766Z">
+<meta property="og:description" content="原理是利用vue提供的插件功能。 ###详细步骤 一、创建vue插件 新建一个vue项目，结构目录如下      lib里面存放的就是自己写的组件； index的内容就是vue插件功能；  import VueComment from &amp;apos;./VueComment.vue&amp;apos; const comment = {   install: function(Vue) {     Vue.">
+<meta property="og:image" content="https://liwuyao.github.io/2018/04/23/vue插件发布到npm/img1.jpg">
+<meta property="og:updated_time" content="2018-04-23T07:02:26.155Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="&#39;vue插件发布到npm&#39;">
-<meta name="twitter:description" content="原理是利用vue提供的插件功能。 ###详细步骤 一、创建vue插件 新建一个vue项目，结构目录如下      lib里面存放的就是自己写的组件；index的内容就是vue插件功能； import VueComment from &amp;#39;./VueComment.vue&amp;#39; const comment = {   install: function(Vue) {     Vue.comp">
-<meta name="twitter:image" content="https://liwuyao.github.io/2018/02/26/vue插件发布到npm/img1.jpg">
+<meta name="twitter:description" content="原理是利用vue提供的插件功能。 ###详细步骤 一、创建vue插件 新建一个vue项目，结构目录如下      lib里面存放的就是自己写的组件； index的内容就是vue插件功能；  import VueComment from &amp;apos;./VueComment.vue&amp;apos; const comment = {   install: function(Vue) {     Vue.">
+<meta name="twitter:image" content="https://liwuyao.github.io/2018/04/23/vue插件发布到npm/img1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="尧的技术博客" type="application/atom+xml">
   
@@ -180,27 +180,29 @@
 <p>###详细步骤</p>
 <p><strong>一、创建vue插件</strong></p>
 <p>新建一个vue项目，结构目录如下</p>
-<p><img src="https://liwuyao.github.io/2018/02/26/vue插件发布到npm/img1.jpg" alt="">    </p>
-<p>lib里面存放的就是自己写的组件；<br>index的内容就是vue插件功能；</p>
-<p><code>import VueComment from &#39;./VueComment.vue&#39;
+<p><img src="https://liwuyao.github.io/2018/04/23/vue插件发布到npm/img1.jpg" alt="">    </p>
+<pre><code>lib里面存放的就是自己写的组件；
+index的内容就是vue插件功能；
+
+import VueComment from &apos;./VueComment.vue&apos;
 const comment = {
   install: function(Vue) {
     Vue.component(VueComment.name, VueComment)
   }
 }
 // global 情况下 自动安装
-if (typeof window !== &#39;undefined&#39; &amp;&amp; window.Vue) { 
+if (typeof window !== &apos;undefined&apos; &amp;&amp; window.Vue) { 
     window.Vue.use(comment) 
 }
 // 导出模块
-export default comment</code></p>
-<p><strong>二、修改package.json</strong></p>
-<p><code>{
+export default comment
+</code></pre><p><strong>二、修改package.json</strong></p>
+<pre><code>{
   &quot;name&quot;: &quot;mini-sliders&quot;,
   &quot;description&quot;: &quot;vue轮播图组件&quot;,
   &quot;version&quot;: &quot;1.0.1&quot;,
   &quot;author&quot;: &quot;Echo-lu &lt;echo_lcp@163.com&gt;&quot;,
-  // 配置main结点，如果不配置，我们在其他项目中就不用import XX from &#39;包名&#39;来引用了，只能以包名作为起点来指定相对的路径
+  // 配置main结点，如果不配置，我们在其他项目中就不用import XX from &apos;包名&apos;来引用了，只能以包名作为起点来指定相对的路径
   &quot;main&quot;:&quot;dist/vue-slider.js&quot;,
   //开源协议
   &quot;license&quot;: &quot;MIT&quot;,
@@ -233,8 +235,8 @@ export default comment</code></p>
   &quot;devDependencies&quot;: {
     ...
   }
-}</code></p>
-<p><strong>三、修改webpack.config</strong></p>
+}
+</code></pre><p><strong>三、修改webpack.config</strong></p>
 <p><code>entry: &#39;./src/lib/index.js&#39;,
 output: {
     path: path.resolve(__dirname, &#39;./dist&#39;),
