@@ -172,11 +172,12 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>原理是利用vue提供的插件功能。</p>
-<p>##详细步骤</p>
+<p>###详细步骤</p>
 <p><strong>一、创建vue插件</strong></p>
 <p>新建一个vue项目，结构目录如下</p>
 <p><img src="https://liwuyao.github.io/2018/02/26/vue插件发布到npm/img1.jpg" alt="">    </p>
-<p>lib里面存放的就是自己写的组件；<br>index的内容就是vue插件功能；<br><code>import VueComment from &#39;./VueComment.vue&#39;
+<p>lib里面存放的就是自己写的组件；<br>index的内容就是vue插件功能；</p>
+<p><code>import VueComment from &#39;./VueComment.vue&#39;
 const comment = {
   install: function(Vue) {
     Vue.component(VueComment.name, VueComment)
@@ -187,7 +188,8 @@ if (typeof window !== &#39;undefined&#39; &amp;&amp; window.Vue) {
     window.Vue.use(comment) 
 }
 // 导出模块
-export default comment</code><br><strong>二、修改package.json</strong></p>
+export default comment</code></p>
+<p><strong>二、修改package.json</strong></p>
 <p><code>{
   &quot;name&quot;: &quot;mini-sliders&quot;,
   &quot;description&quot;: &quot;vue轮播图组件&quot;,
@@ -226,7 +228,9 @@ export default comment</code><br><strong>二、修改package.json</strong></p>
   &quot;devDependencies&quot;: {
     ...
   }
-}</code><br><strong>三、修改webpack.config</strong><br><code>entry: &#39;./src/lib/index.js&#39;,
+}</code></p>
+<p><strong>三、修改webpack.config</strong></p>
+<p><code>entry: &#39;./src/lib/index.js&#39;,
 output: {
     path: path.resolve(__dirname, &#39;./dist&#39;),
     publicPath: &#39;/dist/&#39;,
@@ -235,9 +239,11 @@ output: {
     library: &#39;VueSlider&#39;,
     libraryTarget: &#39;umd&#39;,
     umdNamedDefine: true</code></p>
-<p>完整的webpack.config:<br>`<br>var path = require(‘path’)<br>var webpack = require(‘webpack’)</p>
+<p>完整的webpack.config:</p>
+<p>`<br>var path = require(‘path’)<br>var webpack = require(‘webpack’)</p>
 <p>module.exports = {<br>    // entry: ‘./src/main.js’,<br>  entry: ‘./src/lib/index.js’,<br>  output: {<br>    path: path.resolve(__dirname, ‘./dist’),<br>    publicPath: ‘/dist/‘,<br>    // filename: ‘build.js’<br>    filename: ‘vue-slider.js’,<br>    library: ‘VueSlider’,<br>    libraryTarget: ‘umd’,<br>    umdNamedDefine: true<br>  },<br>  module: {<br>    rules: [<br>      {<br>        test: /.css$/,<br>        use: [<br>          ‘vue-style-loader’,<br>          ‘css-loader’<br>        ],<br>      },      {<br>        test: /.vue$/,<br>        loader: ‘vue-loader’,<br>        options: {<br>          loaders: {<br>          }<br>          // other vue-loader options go here<br>        }<br>      },<br>      {<br>        test: /.js$/,<br>        loader: ‘babel-loader’,<br>        exclude: /node_modules/<br>      },<br>      {<br>        test: /.(png|jpg|gif|svg)$/,<br>        loader: ‘file-loader’,<br>        options: {<br>          name: ‘[name].[ext]?[hash]’<br>        }<br>      }<br>    ]<br>  },<br>  resolve: {<br>    alias: {<br>      ‘vue$’: ‘vue/dist/vue.esm.js’<br>    },<br>    extensions: [‘*’, ‘.js’, ‘.vue’, ‘.json’]<br>  },<br>  devServer: {<br>    historyApiFallback: true,<br>    noInfo: true,<br>    overlay: true<br>  },<br>  performance: {<br>    hints: false<br>  },<br>  devtool: ‘#eval-source-map’<br>}</p>
-<p>if (process.env.NODE_ENV === ‘production’) {<br>  module.exports.devtool = ‘#source-map’<br>  // <a href="http://vue-loader.vuejs.org/en/workflow/production.html" target="_blank" rel="noopener">http://vue-loader.vuejs.org/en/workflow/production.html</a><br>  module.exports.plugins = (module.exports.plugins || []).concat([<br>    new webpack.DefinePlugin({<br>      ‘process.env’: {<br>        NODE_ENV: ‘“production”‘<br>      }<br>    }),<br>    new webpack.optimize.UglifyJsPlugin({<br>      sourceMap: true,<br>      compress: {<br>        warnings: false<br>      }<br>    }),<br>    new webpack.LoaderOptionsPlugin({<br>      minimize: true<br>    })<br>  ])<br>}<br>`<br><strong>四、修改gitignore</strong><br>因为要用dist文件夹，所以在.gitignore文件中把dist/去掉。</p>
+<p>if (process.env.NODE_ENV === ‘production’) {<br>  module.exports.devtool = ‘#source-map’<br>  // <a href="http://vue-loader.vuejs.org/en/workflow/production.html" target="_blank" rel="noopener">http://vue-loader.vuejs.org/en/workflow/production.html</a><br>  module.exports.plugins = (module.exports.plugins || []).concat([<br>    new webpack.DefinePlugin({<br>      ‘process.env’: {<br>        NODE_ENV: ‘“production”‘<br>      }<br>    }),<br>    new webpack.optimize.UglifyJsPlugin({<br>      sourceMap: true,<br>      compress: {<br>        warnings: false<br>      }<br>    }),<br>    new webpack.LoaderOptionsPlugin({<br>      minimize: true<br>    })<br>  ])<br>}<br>`</p>
+<p><strong>四、修改gitignore</strong><br>因为要用dist文件夹，所以在.gitignore文件中把dist/去掉。</p>
 <p><strong>五、测试</strong><br>首先，打包到本地<br>npm run build<br>npm pack<br>npm pack 之后，就会在当前目录下生成 一个tgz 的文件。<br>打开一个新的vue项目，在当前路径下执行(‘路径’ 表示文件所在的位置)<br>npm install 路径/组件名称.tgz<br>然后，在新项目的入口文件（main.js）中引入</p>
 <p><code>import 变量名 from &#39;组件名称&#39;
 Vue.use(变量名)</code></p>
@@ -1293,11 +1299,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">express</a>
+                <a href="javascript:void(0)" class="js-tag color5">blog</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">blog</a>
+                <a href="javascript:void(0)" class="js-tag color3">express</a>
               </li>
              
               <li class="article-tag-list-item">
