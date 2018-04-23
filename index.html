@@ -174,8 +174,7 @@
         <p>原理是利用vue提供的插件功能。</p>
 <p>###详细步骤</p>
 <p><strong>一、创建vue插件</strong></p>
-<p>新建一个vue项目，结构目录如下</p>
-<p><img src="https://liwuyao.github.io/2018/04/23/vue-npm/img1.jpg" alt="">    </p>
+<p>新建一个vue项目，结构目录如下<br><img src="https://liwuyao.github.io/2018/04/23/vue插件发布到npm/img1.png" alt=""></p>
 <pre><code>lib里面存放的就是自己写的组件；
 index的内容就是vue插件功能；
 
@@ -191,149 +190,10 @@ if (typeof window !== &apos;undefined&apos; &amp;&amp; window.Vue) {
 }
 // 导出模块
 export default comment
-</code></pre><p><strong>二、修改package.json</strong></p>
-<pre><code>{
-  &quot;name&quot;: &quot;mini-sliders&quot;,
-  &quot;description&quot;: &quot;vue轮播图组件&quot;,
-  &quot;version&quot;: &quot;1.0.1&quot;,
-  &quot;author&quot;: &quot;Echo-lu &lt;echo_lcp@163.com&gt;&quot;,
-  // 配置main结点，如果不配置，我们在其他项目中就不用import XX from &apos;包名&apos;来引用了，只能以包名作为起点来指定相对的路径
-  &quot;main&quot;:&quot;dist/vue-slider.js&quot;,
-  //开源协议
-  &quot;license&quot;: &quot;MIT&quot;,
-  // 因为组件包是公用的，所以private为false
-  &quot;private&quot;: false,
-  &quot;scripts&quot;: {
-    &quot;dev&quot;: &quot;cross-env NODE_ENV=development webpack-dev-server --open --hot&quot;,
-    &quot;build&quot;: &quot;cross-env NODE_ENV=production webpack --progress --hide-modules&quot;
-  },
- // 指定代码所在的仓库地址
- &quot;repository&quot;: {
- &quot;type&quot;: &quot;git&quot;,
- &quot;url&quot;: &quot;git+https://github.com/echo-lu/mini-sliders.git&quot;
- },
-  &quot;dependencies&quot;: {
-    &quot;vue&quot;: &quot;^2.5.11&quot;
-  },
-  &quot;browserslist&quot;: [
-    &quot;&gt; 1%&quot;,
-    &quot;last 2 versions&quot;,
-    &quot;not ie &lt;= 8&quot;
-  ],
-// 指定关键字
- &quot;keywords&quot;: [
- &quot;vue&quot;,
- &quot;slider&quot;
- ],
-  // 项目官网的url
- &quot;homepage&quot;: &quot;https://github.com/echo-lu/mini-sliders/blob/master/README.md&quot;,
-  &quot;devDependencies&quot;: {
-    ...
-  }
-}
-</code></pre><p><strong>三、修改webpack.config</strong></p>
-<pre><code>entry: &apos;./src/lib/index.js&apos;,
-output: {
-    path: path.resolve(__dirname, &apos;./dist&apos;),
-    publicPath: &apos;/dist/&apos;,
-    // filename: &apos;build.js&apos;
-    filename: &apos;vue-slider.js&apos;,
-    library: &apos;VueSlider&apos;,
-    libraryTarget: &apos;umd&apos;,
-    umdNamedDefine: true 
-</code></pre><p>完整的webpack.config:</p>
-<pre><code>var path = require(&apos;path&apos;)
-var webpack = require(&apos;webpack&apos;)
-
-module.exports = {
-    // entry: &apos;./src/main.js&apos;,
-  entry: &apos;./src/lib/index.js&apos;,
-  output: {
-    path: path.resolve(__dirname, &apos;./dist&apos;),
-    publicPath: &apos;/dist/&apos;,
-    // filename: &apos;build.js&apos;
-    filename: &apos;vue-slider.js&apos;,
-    library: &apos;VueSlider&apos;,
-    libraryTarget: &apos;umd&apos;,
-    umdNamedDefine: true 
-  },
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: [
-          &apos;vue-style-loader&apos;,
-          &apos;css-loader&apos;
-        ],
-      },      {
-        test: /\.vue$/,
-        loader: &apos;vue-loader&apos;,
-        options: {
-          loaders: {
-          }
-          // other vue-loader options go here
-        }
-      },
-      {
-        test: /\.js$/,
-        loader: &apos;babel-loader&apos;,
-        exclude: /node_modules/
-      },
-      {
-        test: /\.(png|jpg|gif|svg)$/,
-        loader: &apos;file-loader&apos;,
-        options: {
-          name: &apos;[name].[ext]?[hash]&apos;
-        }
-      }
-    ]
-  },
-  resolve: {
-    alias: {
-      &apos;vue$&apos;: &apos;vue/dist/vue.esm.js&apos;
-    },
-    extensions: [&apos;*&apos;, &apos;.js&apos;, &apos;.vue&apos;, &apos;.json&apos;]
-  },
-  devServer: {
-    historyApiFallback: true,
-    noInfo: true,
-    overlay: true
-  },
-  performance: {
-    hints: false
-  },
-  devtool: &apos;#eval-source-map&apos;
-}
-
-if (process.env.NODE_ENV === &apos;production&apos;) {
-  module.exports.devtool = &apos;#source-map&apos;
-  // http://vue-loader.vuejs.org/en/workflow/production.html
-  module.exports.plugins = (module.exports.plugins || []).concat([
-    new webpack.DefinePlugin({
-      &apos;process.env&apos;: {
-        NODE_ENV: &apos;&quot;production&quot;&apos;
-      }
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-      compress: {
-        warnings: false
-      }
-    }),
-    new webpack.LoaderOptionsPlugin({
-      minimize: true
-    })
-  ])
-}
-</code></pre><p><strong>四、修改gitignore</strong><br>因为要用dist文件夹，所以在.gitignore文件中把dist/去掉。</p>
-<p><strong>五、测试</strong><br>首先，打包到本地<br>npm run build<br>npm pack<br>npm pack 之后，就会在当前目录下生成 一个tgz 的文件。<br>打开一个新的vue项目，在当前路径下执行(‘路径’ 表示文件所在的位置)<br>npm install 路径/组件名称.tgz<br>然后，在新项目的入口文件（main.js）中引入</p>
-<p><code>import 变量名 from &#39;组件名称&#39;
-Vue.use(变量名)</code></p>
-<p><strong>六、发布</strong><br>1.在 npm官网 注册一个npm账号<br>2.切换到需要发包的项目根目录下，npm login登录npm账号，输入用户名、密码、邮箱<br>3.最后一步，执行npm publish即可</p>
-<p><strong>注意事项</strong><br>记得安装cross-env；<br>它的作用：运行跨平台设置和使用环境变量的脚本；<br>出现原因：当您使用NODE_ENV =production, 来设置环境变量时，大多数Windows命令提示将会阻塞(报错)。 （异常是Windows上的Bash，它使用本机Bash。）同样，Windows和POSIX命令如何使用环境变量也有区别。 使用POSIX，您可以使用：$ ENV_VAR和使用％ENV_VAR％的Windows。<br>说人话：windows不支持NODE_ENV=development的设置方式。会报错<br>安装命令：npm install –save-dev cross-env；</p>
-<p>最好用我写的webpack.config;用vue-cli的改会有问题；期初我用的时候改了半天还是各种问题（可能是我webpack只是入门级的原因，用得6的可以自己去改）；</p>
-<p>在组件中用标签引用的时候，就是use里的内容作为标签名；</p>
-
+</code></pre>
+        
+          <a class="article-more-a" href="/2018/04/23/vue插件发布到npm/#more">more >></a>
+        
       
 
       

@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>&#39;vue插件发布到npm&#39; | 尧的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="原理是利用vue提供的插件功能。 ###详细步骤 一、创建vue插件 新建一个vue项目，结构目录如下      lib里面存放的就是自己写的组件； index的内容就是vue插件功能；  import VueComment from &amp;apos;./VueComment.vue&amp;apos; const comment = {   install: function(Vue) {     Vue.">
+  <meta name="description" content="原理是利用vue提供的插件功能。 ###详细步骤 一、创建vue插件 新建一个vue项目，结构目录如下 lib里面存放的就是自己写的组件； index的内容就是vue插件功能；  import VueComment from &amp;apos;./VueComment.vue&amp;apos; const comment = {   install: function(Vue) {     Vue.compo">
 <meta name="keywords" content="vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="&#39;vue插件发布到npm&#39;">
 <meta property="og:url" content="http://yoursite.com/2018/04/23/vue插件发布到npm/index.html">
 <meta property="og:site_name" content="尧的技术博客">
-<meta property="og:description" content="原理是利用vue提供的插件功能。 ###详细步骤 一、创建vue插件 新建一个vue项目，结构目录如下      lib里面存放的就是自己写的组件； index的内容就是vue插件功能；  import VueComment from &amp;apos;./VueComment.vue&amp;apos; const comment = {   install: function(Vue) {     Vue.">
-<meta property="og:image" content="https://liwuyao.github.io/2018/04/23/vue-npm/img1.jpg">
-<meta property="og:updated_time" content="2018-04-23T07:07:44.622Z">
+<meta property="og:description" content="原理是利用vue提供的插件功能。 ###详细步骤 一、创建vue插件 新建一个vue项目，结构目录如下 lib里面存放的就是自己写的组件； index的内容就是vue插件功能；  import VueComment from &amp;apos;./VueComment.vue&amp;apos; const comment = {   install: function(Vue) {     Vue.compo">
+<meta property="og:image" content="https://liwuyao.github.io/2018/04/23/vue插件发布到npm/img1.png">
+<meta property="og:updated_time" content="2018-04-23T07:15:40.185Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="&#39;vue插件发布到npm&#39;">
-<meta name="twitter:description" content="原理是利用vue提供的插件功能。 ###详细步骤 一、创建vue插件 新建一个vue项目，结构目录如下      lib里面存放的就是自己写的组件； index的内容就是vue插件功能；  import VueComment from &amp;apos;./VueComment.vue&amp;apos; const comment = {   install: function(Vue) {     Vue.">
-<meta name="twitter:image" content="https://liwuyao.github.io/2018/04/23/vue-npm/img1.jpg">
+<meta name="twitter:description" content="原理是利用vue提供的插件功能。 ###详细步骤 一、创建vue插件 新建一个vue项目，结构目录如下 lib里面存放的就是自己写的组件； index的内容就是vue插件功能；  import VueComment from &amp;apos;./VueComment.vue&amp;apos; const comment = {   install: function(Vue) {     Vue.compo">
+<meta name="twitter:image" content="https://liwuyao.github.io/2018/04/23/vue插件发布到npm/img1.png">
   
     <link rel="alternative" href="/atom.xml" title="尧的技术博客" type="application/atom+xml">
   
@@ -179,8 +179,7 @@
         <p>原理是利用vue提供的插件功能。</p>
 <p>###详细步骤</p>
 <p><strong>一、创建vue插件</strong></p>
-<p>新建一个vue项目，结构目录如下</p>
-<p><img src="https://liwuyao.github.io/2018/04/23/vue-npm/img1.jpg" alt="">    </p>
+<p>新建一个vue项目，结构目录如下<br><img src="https://liwuyao.github.io/2018/04/23/vue插件发布到npm/img1.png" alt=""></p>
 <pre><code>lib里面存放的就是自己写的组件；
 index的内容就是vue插件功能；
 
@@ -196,7 +195,8 @@ if (typeof window !== &apos;undefined&apos; &amp;&amp; window.Vue) {
 }
 // 导出模块
 export default comment
-</code></pre><p><strong>二、修改package.json</strong></p>
+</code></pre><a id="more"></a>
+<p><strong>二、修改package.json</strong></p>
 <pre><code>{
   &quot;name&quot;: &quot;mini-sliders&quot;,
   &quot;description&quot;: &quot;vue轮播图组件&quot;,
