@@ -151,6 +151,91 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-vue-can-hide-select" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/05/vue-can-hide-select/">vue-can-hide-select</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/05/vue-can-hide-select/" class="archive-article-date">
+  	<time datetime="2018-07-05T08:52:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>此插件是超行可省略插件，只应用于vue，此插件优点除了可以超行省略，还有就是样式可以最大自由化，是以直接填写style来控制<br>效果图如下</p>
+<p><img src="https://liwuyao.github.io/2018/07/05/vue-can-hide-select/vue-can-hide-demo.png" alt=""></p>
+<p>git地址：<a href="https://github.com/liwuyao/can-hide-select；" target="_blank" rel="noopener">https://github.com/liwuyao/can-hide-select；</a><br>安装：npm install can-hide-select<br>使用说明：<br>main.js中引用</p>
+<pre><code>import hideSelect from &apos;can-hide-selcet&apos;
+Vue.use(hideSelect);
+</code></pre><p>在组件中引用</p>
+<pre><code>&lt;can-hide-select :data=&quot;options&quot; :config=&quot;selectConfig&quot; v-if=&quot;open&quot; v-on:selectVal=&quot;selectRes&quot;&gt;&lt;/can-hide-select&gt;
+</code></pre><p>data的类型：1、[‘测试1’，‘测试2’]，2、[{value:1,lable:’测试1’}，{value:2,lable:’测试2’}]；<br>config是填写相关配置，具体说明如下</p>
+<pre><code>isLable:false, //如果data是1类型,可以不填，如果data是2类型，值设置成true
+optionCalssName:&apos;&apos;, //可以设置自己设定的class名给option
+selectVal:&apos;请输入&apos;, //select的值，可以用来初始化设置（目前版本只能默认首选为第一个）
+selectStyle:&apos;&apos;,  //最外框的样式
+valueStyle:&apos;&apos;,  //select框的style
+optionStyle:&apos;&apos;, //option的style
+iconStyle:&apos;&apos;,  //下拉icon的style
+optionBoxStyle:&apos;&apos;, //option外框的style
+optionOutBoxStyle:&apos;&apos;, //option最外框的style
+</code></pre><p>selecVal是返回值函数，在组建中用一个函数接收</p>
+<pre><code>methods:{
+      selectRes(val){
+          console.log(val);
+      }
+}
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/05/vue-can-hide-select/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-vue插件发布到npm" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1232,11 +1317,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1244,11 +1329,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">express</a>
+                <a href="javascript:void(0)" class="js-tag color1">serve</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">serve</a>
+                <a href="javascript:void(0)" class="js-tag color3">express</a>
               </li>
              
               <li class="article-tag-list-item">
