@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>帅尧的博客 | 尧的技术博客</title>
+  <title>js时间相关问题 | 尧的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="破相册，搞了一天了还不如我自己写，明天来 Quick StartCreate a new post1$ hexo new &quot;My New Post&quot;">
+  <meta name="description" content="一、时间戳与日期格式的相互转换 时间戳转日期格式 function timestampToTime(timestamp) {         var date = new Date(timestamp * 1000);//时间戳为10位需*1000，时间戳为13位的话不需乘1000         Y = date.getFullYear() + &amp;apos;-&amp;apos;;         M">
+<meta name="keywords" content="js">
 <meta property="og:type" content="article">
-<meta property="og:title" content="帅尧的博客">
-<meta property="og:url" content="http://yoursite.com/2018/02/23/hello-world/index.html">
+<meta property="og:title" content="js时间相关问题">
+<meta property="og:url" content="http://yoursite.com/2018/07/06/js时间相关问题/index.html">
 <meta property="og:site_name" content="尧的技术博客">
-<meta property="og:description" content="破相册，搞了一天了还不如我自己写，明天来 Quick StartCreate a new post1$ hexo new &quot;My New Post&quot;">
-<meta property="og:updated_time" content="2018-02-26T03:44:56.353Z">
+<meta property="og:description" content="一、时间戳与日期格式的相互转换 时间戳转日期格式 function timestampToTime(timestamp) {         var date = new Date(timestamp * 1000);//时间戳为10位需*1000，时间戳为13位的话不需乘1000         Y = date.getFullYear() + &amp;apos;-&amp;apos;;         M">
+<meta property="og:updated_time" content="2018-07-06T09:03:10.313Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="帅尧的博客">
-<meta name="twitter:description" content="破相册，搞了一天了还不如我自己写，明天来 Quick StartCreate a new post1$ hexo new &quot;My New Post&quot;">
+<meta name="twitter:title" content="js时间相关问题">
+<meta name="twitter:description" content="一、时间戳与日期格式的相互转换 时间戳转日期格式 function timestampToTime(timestamp) {         var date = new Date(timestamp * 1000);//时间戳为10位需*1000，时间戳为13位的话不需乘1000         Y = date.getFullYear() + &amp;apos;-&amp;apos;;         M">
   
     <link rel="alternative" href="/atom.xml" title="尧的技术博客" type="application/atom+xml">
   
@@ -153,28 +154,65 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-world" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-js时间相关问题" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      帅尧的博客
+      js时间相关问题
     </h1>
   
 
         
-        <a href="/2018/02/23/hello-world/" class="archive-article-date">
-  	<time datetime="2018-02-23T06:41:35.936Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-23</time>
+        <a href="/2018/07/06/js时间相关问题/" class="archive-article-date">
+  	<time datetime="2018-07-06T08:45:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>破相册，搞了一天了还不如我自己写，明天来</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+        <p>一、时间戳与日期格式的相互转换</p>
+<p>时间戳转日期格式</p>
+<pre><code>function timestampToTime(timestamp) {
+        var date = new Date(timestamp * 1000);//时间戳为10位需*1000，时间戳为13位的话不需乘1000
+        Y = date.getFullYear() + &apos;-&apos;;
+        M = (date.getMonth()+1 &lt; 10 ? &apos;0&apos;+(date.getMonth()+1) : date.getMonth()+1) + &apos;-&apos;;
+        D = date.getDate() + &apos; &apos;;
+        h = date.getHours() + &apos;:&apos;;
+        m = date.getMinutes() + &apos;:&apos;;
+        s = date.getSeconds();
+        return Y+M+D+h+m+s;
+    }
+    timestampToTime(1403058804);
+    console.log(timestampToTime(1403058804));//2014-06-18 10:33:24
+</code></pre><p>日期转时间戳</p>
+<pre><code>var date = new Date(&apos;2014-04-23 18:55:49:123&apos;);
+    // 有三种方式获取
+    var time1 = date.getTime();
+    var time2 = date.valueOf();
+    var time3 = Date.parse(date);
+    console.log(time1);//1398250549123
+    console.log(time2);//1398250549123
+    console.log(time3);//1398250549000
+</code></pre><p>在实际应用中的小技巧，时间戳转换为yyyy–mm–dd,将转换函数挂载在Data原型上</p>
+<pre><code>Date.prototype.format = function (format) {
+    var o = {
+        &quot;M+&quot;: this.getMonth() + 1, //month
+        &quot;d+&quot;: this.getDate(), //day
+        &quot;h+&quot;: this.getHours(), //hour
+        &quot;m+&quot;: this.getMinutes(), //minute
+        &quot;s+&quot;: this.getSeconds(), //second
+        &quot;q+&quot;: Math.floor((this.getMonth() + 3) / 3), //quarter
+        &quot;S&quot;: this.getMilliseconds() //millisecond
+    }
+    if (/(y+)/.test(format)) format = format.replace(RegExp.$1,(this.getFullYear() + &quot;&quot;).substr(4 - RegExp.$1.length));
+    for (var k in o) if (new RegExp(&quot;(&quot; + k + &quot;)&quot;).test(format))format = format.replace(RegExp.$1,RegExp.$1.length == 1 ? o[k] :(&quot;00&quot; + o[k]).substr((&quot;&quot; + o[k]).length));
+    return format;
+}
+</code></pre><p>注意：此方式在angular2以上框架不能用，在angular2以上框架可用angular自带的管道进行转换；</p>
 
       
 
@@ -204,6 +242,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -254,7 +303,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/02/23/hello-world/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/06/js时间相关问题/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -268,15 +317,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/02/26/blog-build/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          用hexo和github搭建博客
-        
-      </div>
-    </a>
   
+    <a href="/2018/07/06/url跳转问题/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">url跳转问题</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -304,7 +349,7 @@
   
 
   
-  <div id="SOHUCS" sid="hello-world" ></div> 
+  <div id="SOHUCS" sid="js时间相关问题" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
