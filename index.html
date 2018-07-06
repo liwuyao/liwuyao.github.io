@@ -185,32 +185,10 @@
     }
     timestampToTime(1403058804);
     console.log(timestampToTime(1403058804));//2014-06-18 10:33:24
-</code></pre><p>日期转时间戳</p>
-<pre><code>var date = new Date(&apos;2014-04-23 18:55:49:123&apos;);
-    // 有三种方式获取
-    var time1 = date.getTime();
-    var time2 = date.valueOf();
-    var time3 = Date.parse(date);
-    console.log(time1);//1398250549123
-    console.log(time2);//1398250549123
-    console.log(time3);//1398250549000
-</code></pre><p>在实际应用中的小技巧，时间戳转换为yyyy–mm–dd,将转换函数挂载在Data原型上</p>
-<pre><code>Date.prototype.format = function (format) {
-    var o = {
-        &quot;M+&quot;: this.getMonth() + 1, //month
-        &quot;d+&quot;: this.getDate(), //day
-        &quot;h+&quot;: this.getHours(), //hour
-        &quot;m+&quot;: this.getMinutes(), //minute
-        &quot;s+&quot;: this.getSeconds(), //second
-        &quot;q+&quot;: Math.floor((this.getMonth() + 3) / 3), //quarter
-        &quot;S&quot;: this.getMilliseconds() //millisecond
-    }
-    if (/(y+)/.test(format)) format = format.replace(RegExp.$1,(this.getFullYear() + &quot;&quot;).substr(4 - RegExp.$1.length));
-    for (var k in o) if (new RegExp(&quot;(&quot; + k + &quot;)&quot;).test(format))format = format.replace(RegExp.$1,RegExp.$1.length == 1 ? o[k] :(&quot;00&quot; + o[k]).substr((&quot;&quot; + o[k]).length));
-    return format;
-}
-</code></pre><p>注意：此方式在angular2以上框架不能用，在angular2以上框架可用angular自带的管道进行转换；</p>
-
+</code></pre><p>日期转时间戳<br>
+        
+          <a class="article-more-a" href="/2018/07/06/js时间相关问题/#more">more >></a>
+        
       
 
       
@@ -1381,11 +1359,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
               </li>
              
               <li class="article-tag-list-item">
