@@ -174,7 +174,25 @@
         <p>几个用来解决手机适配的方案</p>
 <p><strong>rem</strong></p>
 <p>利用html根元素上font-size来实现。设置一个固定比例，例如font-size为100，屏幕的分辨率为375，那么比就为100/375;用js自动检测当前屏幕的分布率，用之前设定的<br>比例进行换算成当前的fon-size,然后再将次设置给html标签</p>
-<p>代码如下<br>    (function (doc, win) {<br>            var docEl = doc.documentElement,<br>              // orientationchange 事件 用来监听手机屏幕的反转<br>              resizeEvt = ‘orientationchange’ in window ? ‘orientationchange’ : ‘resize’,<br>              recalc = function () {<br>                var clientWidth = docEl.clientWidth;//(window.innerWidth);UC 或者QQ 安卓4.0 以下原生浏览器下面是没有<br>                if(docEl.clientWidth &gt;= 400){<br>                    clientWidth = 400;<br>                }<br>                if (!clientWidth) return;<br>                docEl.style.fontSize = 100 * (clientWidth / 375) + ‘px’;<br>              };<br>            if (!doc.addEventListener) return;<br>            win.addEventListener(resizeEvt, recalc, false);<br>            //DOMContentLoaded dom 加载完成，onload 有什么区别 dom css js OK 才执行的<br>            doc.addEventListener(‘DOMContentLoaded’, recalc, false);<br>    })(document, window);<br>将次代码放入html最头部即可</p>
+<p>代码如下</p>
+<pre><code>(function (doc, win) {
+        var docEl = doc.documentElement,
+          // orientationchange 事件 用来监听手机屏幕的反转
+          resizeEvt = &apos;orientationchange&apos; in window ? &apos;orientationchange&apos; : &apos;resize&apos;,
+          recalc = function () {
+            var clientWidth = docEl.clientWidth;//(window.innerWidth);UC 或者QQ 安卓4.0 以下原生浏览器下面是没有
+            if(docEl.clientWidth &gt;= 400){
+                clientWidth = 400;
+            }
+            if (!clientWidth) return;
+            docEl.style.fontSize = 100 * (clientWidth / 375) + &apos;px&apos;;
+          };
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        //DOMContentLoaded dom 加载完成，onload 有什么区别 dom css js OK 才执行的
+        doc.addEventListener(&apos;DOMContentLoaded&apos;, recalc, false);
+})(document, window);
+</code></pre><p>将次代码放入html最头部即可</p>
 <p><strong>利用meta 标签</strong></p>
 <pre><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0&quot;&gt;
 </code></pre><p>width:设置layout viewport 的宽度，为一个正整数，或字符串”width-device”（自动设置成当前分辨率）<br>initial-scale:设置页面的初始缩放值，为一个数字，可以带小数<br>minimum-scale:允许用户的最小缩放值，为一个数字，可以带小数<br>maximum-scale:允许用户的最大缩放值，为一个数字，可以带小数<br>height:设置layout viewport 的高度，这个属性并不重要，很少使用<br>user-scalable:是否允许用户进行缩放，值为”no”或”yes”, no 代表不允许，yes代表允许</p>
@@ -1367,11 +1385,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">express</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1383,19 +1397,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">express</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">serve</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">url跳转</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
             
             <div class="clearfix"></div>
