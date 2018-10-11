@@ -6,14 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: express | 尧的技术博客</title>
+  <title>手机适配 | 尧的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="尧的技术博客">
-<meta property="og:url" content="http://yoursite.com/tags/express/index.html">
+  <meta name="description" content="几个用来解决手机适配的方案 rem 利用html根元素上font-size来实现。设置一个固定比例，例如font-size为100，屏幕的分辨率为375，那么比就为100/375;用js自动检测当前屏幕的分布率，用之前设定的比例进行换算成当前的fon-size,然后再将次设置给html标签 代码如下    (function (doc, win) {            var docEl =">
+<meta property="og:type" content="article">
+<meta property="og:title" content="手机适配">
+<meta property="og:url" content="http://yoursite.com/2018/10/11/手机适配/index.html">
 <meta property="og:site_name" content="尧的技术博客">
+<meta property="og:description" content="几个用来解决手机适配的方案 rem 利用html根元素上font-size来实现。设置一个固定比例，例如font-size为100，屏幕的分辨率为375，那么比就为100/375;用js自动检测当前屏幕的分布率，用之前设定的比例进行换算成当前的fon-size,然后再将次设置给html标签 代码如下    (function (doc, win) {            var docEl =">
+<meta property="og:updated_time" content="2018-10-11T09:15:22.306Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="尧的技术博客">
+<meta name="twitter:title" content="手机适配">
+<meta name="twitter:description" content="几个用来解决手机适配的方案 rem 利用html根元素上font-size来实现。设置一个固定比例，例如font-size为100，屏幕的分辨率为375，那么比就为100/375;用js自动检测当前屏幕的分布率，用之前设定的比例进行换算成当前的fon-size,然后再将次设置给html标签 代码如下    (function (doc, win) {            var docEl =">
   
     <link rel="alternative" href="/atom.xml" title="尧的技术博客" type="application/atom+xml">
   
@@ -149,60 +153,180 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-手机适配" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/05/express-post上传数据相关问题/" class="archive-article-date">
-  	<time datetime="2018-03-05T10:15:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-05</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/05/express-post上传数据相关问题/">&#39;express-post上传数据相关问题&#39;</a>
+    <h1 class="article-title" itemprop="name">
+      手机适配
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">express</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        <a href="/2018/10/11/手机适配/" class="archive-article-date">
+  	<time datetime="2018-10-11T08:36:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>几个用来解决手机适配的方案</p>
+<p><strong>rem</strong></p>
+<p>利用html根元素上font-size来实现。设置一个固定比例，例如font-size为100，屏幕的分辨率为375，那么比就为100/375;用js自动检测当前屏幕的分布率，用之前设定的<br>比例进行换算成当前的fon-size,然后再将次设置给html标签</p>
+<p>代码如下<br>    (function (doc, win) {<br>            var docEl = doc.documentElement,<br>              // orientationchange 事件 用来监听手机屏幕的反转<br>              resizeEvt = ‘orientationchange’ in window ? ‘orientationchange’ : ‘resize’,<br>              recalc = function () {<br>                var clientWidth = docEl.clientWidth;//(window.innerWidth);UC 或者QQ 安卓4.0 以下原生浏览器下面是没有<br>                if(docEl.clientWidth &gt;= 400){<br>                    clientWidth = 400;<br>                }<br>                if (!clientWidth) return;<br>                docEl.style.fontSize = 100 * (clientWidth / 375) + ‘px’;<br>              };<br>            if (!doc.addEventListener) return;<br>            win.addEventListener(resizeEvt, recalc, false);<br>            //DOMContentLoaded dom 加载完成，onload 有什么区别 dom css js OK 才执行的<br>            doc.addEventListener(‘DOMContentLoaded’, recalc, false);<br>    })(document, window);<br>将次代码放入html最头部即可</p>
+<p><strong>利用meta 标签</strong></p>
+<pre><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0&quot;&gt;
+</code></pre><p>width:设置layout viewport 的宽度，为一个正整数，或字符串”width-device”（自动设置成当前分辨率）<br>initial-scale:设置页面的初始缩放值，为一个数字，可以带小数<br>minimum-scale:允许用户的最小缩放值，为一个数字，可以带小数<br>maximum-scale:允许用户的最大缩放值，为一个数字，可以带小数<br>height:设置layout viewport 的高度，这个属性并不重要，很少使用<br>user-scalable:是否允许用户进行缩放，值为”no”或”yes”, no 代表不允许，yes代表允许</p>
+<p>固定content的width，利用js按比例设置initial-scale，比例为：当前分辨率/固定分辨率</p>
+<pre><code>window.onload=function(){
+        var winWidth = window.screen.width;
+        var meta = document.getElementById(&apos;viewport&apos;);
+        var scale = winWidth/375;
+        var val = &quot;width=375, initial-scale=&quot;+ scale + &quot;, user-scalable=no&quot;;
+                meta.content = val;
+}
+</code></pre>
+      
 
-          
-
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/10/11/手机适配/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/09/03/fromData/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">&#39;fromData&#39;</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+  <div id="SOHUCS" sid="手机适配" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cysX3aGWt",
+        conf: "prod_1dcda447175aada96edcdb7e412338fa"
+    });
+</script>
+</script>
+  
+
+  
+
+  
 
 
           </div>
@@ -225,9 +349,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
