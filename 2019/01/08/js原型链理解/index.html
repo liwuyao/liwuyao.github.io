@@ -6,14 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: blog | 尧的技术博客</title>
+  <title>js原型链理解 | 尧的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="尧的技术博客">
-<meta property="og:url" content="http://yoursite.com/tags/blog/index.html">
+  <meta name="description" content="原型链从解决js开始就知道，以前都是死记硬背，直到最近查询了大量资料，算有一个更加深入的理解 一、前言Javascript中所有的对象都是Object的实例，并继承Object.prototype的属性和方法，也就是说，Object.prototype是所有对象的爸爸。 prototype是函数对象才有的，普通对象只有proto; 二、prototype产生的背景；  Brendan Eich（开">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js原型链理解">
+<meta property="og:url" content="http://yoursite.com/2019/01/08/js原型链理解/index.html">
 <meta property="og:site_name" content="尧的技术博客">
+<meta property="og:description" content="原型链从解决js开始就知道，以前都是死记硬背，直到最近查询了大量资料，算有一个更加深入的理解 一、前言Javascript中所有的对象都是Object的实例，并继承Object.prototype的属性和方法，也就是说，Object.prototype是所有对象的爸爸。 prototype是函数对象才有的，普通对象只有proto; 二、prototype产生的背景；  Brendan Eich（开">
+<meta property="og:image" content="https://liwuyao.github.io/2019/01/08/js原型链理解/1.jpg">
+<meta property="og:updated_time" content="2019-01-08T08:53:42.511Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="尧的技术博客">
+<meta name="twitter:title" content="js原型链理解">
+<meta name="twitter:description" content="原型链从解决js开始就知道，以前都是死记硬背，直到最近查询了大量资料，算有一个更加深入的理解 一、前言Javascript中所有的对象都是Object的实例，并继承Object.prototype的属性和方法，也就是说，Object.prototype是所有对象的爸爸。 prototype是函数对象才有的，普通对象只有proto; 二、prototype产生的背景；  Brendan Eich（开">
+<meta name="twitter:image" content="https://liwuyao.github.io/2019/01/08/js原型链理解/1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="尧的技术博客" type="application/atom+xml">
   
@@ -149,60 +155,197 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-js原型链理解" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/02/26/blog-build/" class="archive-article-date">
-  	<time datetime="2018-02-26T06:43:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-26</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/02/26/blog-build/">用hexo和github搭建博客</a>
+    <h1 class="article-title" itemprop="name">
+      js原型链理解
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">blog</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        <a href="/2019/01/08/js原型链理解/" class="archive-article-date">
+  	<time datetime="2019-01-08T07:58:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>原型链从解决js开始就知道，以前都是死记硬背，直到最近查询了大量资料，算有一个更加深入的理解</p>
+<p>一、前言<br>Javascript中所有的对象都是Object的实例，并继承Object.prototype的属性和方法，也就是说，Object.prototype是所有对象的爸爸。</p>
+<p>prototype是函数对象才有的，普通对象只有<em>proto</em>;</p>
+<p>二、prototype产生的背景；<br>  Brendan Eich（开发js语言的大神），在设计js的时候想要js有继承的作用，又不想做成java那种太正式的面向对象语言。<br>  于是就加入了prototype这个属性；</p>
+<p>  实用场景：<br>创建一个dog构造函数</p>
+<pre><code>function DOG(name){
+</code></pre><p>　　　　this.name = name;<br>　　　　this.species = ‘犬科’;<br>　　}</p>
+<p>然后生成2个实例</p>
+<pre><code>var dogA = new DOG(&apos;大毛&apos;);
+</code></pre><p>　　 var dogB = new DOG(‘二毛’);</p>
+<p>这两个对象的species属性是独立的，修改其中一个，不会影响到另一个。<br>每一个实例对象，都有自己的属性和方法的副本。这不仅无法做到数据共享，也是极大的资源浪费。</p>
+<p>考虑到这一点，Brendan Eich决定为构造函数设置一个prototype属性。<br>这个属性包含一个对象（以下简称”prototype对象”），所有实例对象需要共享的属性和方法，都放在这个对象里面；那些不需要共享的属性和方法，就放在构造函数里面。<br>实例对象一旦创建，将自动引用prototype对象的属性和方法。也就是说，实例对象的属性和方法，分成两种，一种是本地的，另一种是引用的。<br>还是以DOG构造函数为例，现在用prototype属性进行改写：</p>
+<pre><code>function DOG(name){
+</code></pre><p>　　　　this.name = name;<br>　　}<br>　　DOG.prototype = { species : ‘犬科’ };</p>
+<p>　　var dogA = new DOG(‘大毛’);<br>　　var dogB = new DOG(‘二毛’);</p>
+<p>　　alert(dogA.species); // 犬科<br>　　alert(dogB.species); // 犬科</p>
+<p>三、原型链</p>
+<p>proto：事实上就是原型链指针！！</p>
+<p>prototype：指向原型对象的</p>
+<p>constructor：每一个原型对象都包含一个指向构造函数的指针，就是constructor</p>
+<p><img src="https://liwuyao.github.io/2019/01/08/js原型链理解/1.jpg" alt="">；</p>
+<p>所以对象f1的原型链：f1.<strong>proto</strong>—-&gt;Fn.prototype.<strong>proto</strong>—–&gt;Object.prototype.<strong>prototype</strong>—-&gt;null</p>
+<p>调用一个实例的某属性的时候，js会先在自身函数上寻找，如果没找到，就会顺着<em>proto</em>指针向上寻找原型对象，如果没找到继续向上找；<br>如果自身的属性名和原型对象的属性名重名，默认调用自身的属性名。</p>
+<p>原型链里面的一些详细说明例子（作为了解，个人觉得在写代码时作用不大）：</p>
+<pre><code>function person(){
+}
 
-          
+var person1 = new person();
+</code></pre><p>这两者的关系是这样<br>Person.prototype.constructor == Person;<br>person1.<strong>proto</strong> == Person.prototype;<br>person1.constructor == Person;</p>
+<p>person1 为什么有 constructor 属性？那是因为 person1 是 Person 的实例。<br>那 Person.prototype 为什么有 constructor 属性？？同理， Person.prototype （你把它想象成 A） 也是Person 的实例。<br>也就是在 Person 创建的时候，创建了一个它的实例对象并赋值给它的 prototype，基本过程如下：</p>
+<pre><code>var A = new Person();
+Person.prototype = A;
+</code></pre>
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/01/08/js原型链理解/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/01/04/react-native使用总结/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">react-native使用总结</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+  <div id="SOHUCS" sid="js原型链理解" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cysX3aGWt",
+        conf: "prod_1dcda447175aada96edcdb7e412338fa"
+    });
+</script>
+</script>
+  
+
+  
+
+  
 
 
           </div>
@@ -225,9 +368,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

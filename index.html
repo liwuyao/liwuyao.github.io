@@ -151,6 +151,100 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-js原型链理解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/08/js原型链理解/">js原型链理解</a>
+    </h1>
+  
+
+        
+        <a href="/2019/01/08/js原型链理解/" class="archive-article-date">
+  	<time datetime="2019-01-08T07:58:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>原型链从解决js开始就知道，以前都是死记硬背，直到最近查询了大量资料，算有一个更加深入的理解</p>
+<p>一、前言<br>Javascript中所有的对象都是Object的实例，并继承Object.prototype的属性和方法，也就是说，Object.prototype是所有对象的爸爸。</p>
+<p>prototype是函数对象才有的，普通对象只有<em>proto</em>;</p>
+<p>二、prototype产生的背景；<br>  Brendan Eich（开发js语言的大神），在设计js的时候想要js有继承的作用，又不想做成java那种太正式的面向对象语言。<br>  于是就加入了prototype这个属性；</p>
+<p>  实用场景：<br>创建一个dog构造函数</p>
+<pre><code>function DOG(name){
+</code></pre><p>　　　　this.name = name;<br>　　　　this.species = ‘犬科’;<br>　　}</p>
+<p>然后生成2个实例</p>
+<pre><code>var dogA = new DOG(&apos;大毛&apos;);
+</code></pre><p>　　 var dogB = new DOG(‘二毛’);</p>
+<p>这两个对象的species属性是独立的，修改其中一个，不会影响到另一个。<br>每一个实例对象，都有自己的属性和方法的副本。这不仅无法做到数据共享，也是极大的资源浪费。</p>
+<p>考虑到这一点，Brendan Eich决定为构造函数设置一个prototype属性。<br>这个属性包含一个对象（以下简称”prototype对象”），所有实例对象需要共享的属性和方法，都放在这个对象里面；那些不需要共享的属性和方法，就放在构造函数里面。<br>实例对象一旦创建，将自动引用prototype对象的属性和方法。也就是说，实例对象的属性和方法，分成两种，一种是本地的，另一种是引用的。<br>还是以DOG构造函数为例，现在用prototype属性进行改写：</p>
+<pre><code>function DOG(name){
+</code></pre><p>　　　　this.name = name;<br>　　}<br>　　DOG.prototype = { species : ‘犬科’ };</p>
+<p>　　var dogA = new DOG(‘大毛’);<br>　　var dogB = new DOG(‘二毛’);</p>
+<p>　　alert(dogA.species); // 犬科<br>　　alert(dogB.species); // 犬科</p>
+<p>三、原型链</p>
+<p>proto：事实上就是原型链指针！！</p>
+<p>prototype：指向原型对象的</p>
+<p>constructor：每一个原型对象都包含一个指向构造函数的指针，就是constructor</p>
+<p><img src="https://liwuyao.github.io/2019/01/08/js原型链理解/1.jpg" alt="">；</p>
+<p>所以对象f1的原型链：f1.<strong>proto</strong>—-&gt;Fn.prototype.<strong>proto</strong>—–&gt;Object.prototype.<strong>prototype</strong>—-&gt;null</p>
+<p>调用一个实例的某属性的时候，js会先在自身函数上寻找，如果没找到，就会顺着<em>proto</em>指针向上寻找原型对象，如果没找到继续向上找；<br>如果自身的属性名和原型对象的属性名重名，默认调用自身的属性名。</p>
+<p>原型链里面的一些详细说明例子（作为了解，个人觉得在写代码时作用不大）：</p>
+<pre><code>function person(){
+}
+
+var person1 = new person();
+</code></pre><p>这两者的关系是这样<br>Person.prototype.constructor == Person;<br>person1.<strong>proto</strong> == Person.prototype;<br>person1.constructor == Person;</p>
+<p>person1 为什么有 constructor 属性？那是因为 person1 是 Person 的实例。<br>那 Person.prototype 为什么有 constructor 属性？？同理， Person.prototype （你把它想象成 A） 也是Person 的实例。<br>也就是在 Person 创建的时候，创建了一个它的实例对象并赋值给它的 prototype，基本过程如下：</p>
+<pre><code>var A = new Person();
+Person.prototype = A;
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/01/08/js原型链理解/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-react-native使用总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -998,81 +1092,6 @@ export default comment
 
 
   
-    <article id="post-express-post上传数据相关问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/05/express-post上传数据相关问题/">&#39;express-post上传数据相关问题&#39;</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/05/express-post上传数据相关问题/" class="archive-article-date">
-  	<time datetime="2018-03-05T10:15:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="在用node服务express的post遇到的问题"><a href="#在用node服务express的post遇到的问题" class="headerlink" title="在用node服务express的post遇到的问题"></a>在用node服务express的post遇到的问题</h3><p><strong>-、上传对象时，express接收到的数据为空</strong><br>查看Content-type的设置是否和express的设置一样。</p>
-<p>Content-type: application/json 是传输json格式的数据<br>Content-type: application/x-www-form-urlencoded 是传输from，也可以传输文件，图片；</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">express</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/05/express-post上传数据相关问题/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1170,10 +1189,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">blog</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
@@ -1182,11 +1197,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color5">blog</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">express</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
