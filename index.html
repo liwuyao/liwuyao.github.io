@@ -151,6 +151,212 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-call-apply-bind" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/09/call-apply-bind/">call apply bind</a>
+    </h1>
+  
+
+        
+        <a href="/2019/01/09/call-apply-bind/" class="archive-article-date">
+  	<time datetime="2019-01-09T07:19:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>一、call bind</strong></p>
+<p>apply：调用一个对象的一个方法，用另一个对象替换当前对象。例如：B.apply(A, arguments);即A对象应用B对象的方法。</p>
+<p>call：调用一个对象的一个方法，用另一个对象替换当前对象。例如：B.call(A, args1,args2);即A对象调用B对象的方法。</p>
+<p><strong>它们的共同之处</strong></p>
+<p>都“可以用来代替另一个对象调用一个方法，将一个函数的对象上下文从初始的上下文改变为由thisObj指定的新对象”。</p>
+<p><strong>它们的不同之处</strong></p>
+<p>apply：最多只能有两个参数——新this对象和一个数组argArray。如果给该方法传递多个参数，则把参数都写进这个数组里面，当然，即使只有一个参数，也要写进数组里。如果argArray不是一个有效的数组或arguments对象，那么将导致一个TypeError。如果没有提供argArray和thisObj任何一个参数，那么Global对象将被用作thisObj，并且无法被传递任何参数。</p>
+<p>call：它可以接受多个参数，第一个参数与apply一样，后面则是一串参数列表。这个方法主要用在js对象各方法相互调用的时候，使当前this实例指针保持一致，或者在特殊情况下需要改变this指针。如果没有提供thisObj参数，那么 Global 对象被用作thisObj。 </p>
+<p>实际上，apply和call的功能是一样的，只是传入的参数列表形式不同。</p>
+<p>实现继承</p>
+<pre><code>function Animal(name){
+  this.name = name;
+  this.showName = function(){
+        alert(this.name);    
+    }    
+}
+
+function Cat(name){
+  Animal.apply(this,[name]);    
+}
+
+var cat = new Cat(&quot;咕咕&quot;);
+cat.showName();
+
+/*call的用法*/
+Animal.call(this,name);
+</code></pre><p>多重继承</p>
+<pre><code>function Class10(){
+  this.showSub = function(a,b){
+        alert(a - b);
+    }   
+}
+
+function Class11(){
+  this.showAdd = function(a,b){
+        alert(a + b);
+    }  
+}
+
+function Class12(){
+  Class10.apply(this);
+  Class11.apply(this);   
+  // Class10.call(this);
+  //Class11.call(this);  
+}
+
+var c2 = new Class12();
+c2.showSub(3,1);    //2
+c2.showAdd(3,1);    //4
+</code></pre><p>数组之间追加</p>
+<pre><code>var array1 = [12 , &quot;foo&quot; , {name:&quot;Joe&quot;} , -2458]; 
+var array2 = [&quot;Doe&quot; , 555 , 100]; 
+Array.prototype.push.apply(array1, array2); 
+</code></pre><p>获取数组中的最大值和最小值</p>
+<pre><code>var  numbers = [5, 458 , 120 , -215 ]; 
+var maxInNumbers = Math.max.apply(Math, numbers),   //458
+maxInNumbers = Math.max.call(Math,5, 458 , 120 , -215); //458
+</code></pre><p>验证是否是数组（前提是toString()方法没有被重写过，也是用isArray验证）</p>
+<pre><code>functionisArray(obj){ 
+    return Object.prototype.toString.call(obj) === &apos;[object Array]&apos; ;
+}
+</code></pre><p>面试题</p>
+<p>定义一个 log 方法，让它可以代理 console.log 方法，常见的解决方法是：</p>
+<pre><code>function log(msg)　{
+  console.log(msg);
+}
+log(1);    //1
+log(1,2);    //1
+</code></pre><p>上面方法可以解决最基本的需求，但是当传入参数的个数是不确定的时候，上面的方法就失效了，这个时候就可以考虑使用 apply 或者 call，注意这里传入多少个参数是不确定的，所以使用apply是最好的，方法如下：</p>
+<pre><code>function log(){
+  console.log.apply(console, arguments);
+};
+log(1);    //1
+log(1,2);    //1 2
+</code></pre><p>接下来的要求是给每一个 log 消息添加一个”(app)”的前辍，比如：</p>
+<pre><code>log(&quot;hello world&quot;); //(app)hello world
+</code></pre><p>该怎么做比较优雅呢?这个时候需要想到arguments参数是个伪数组，通过 Array.prototype.slice.call 转化为标准数组，再使用数组方法unshift，像这样：</p>
+<pre><code>function log(){
+  var args = Array.prototype.slice.call(arguments);
+  args.unshift(&apos;(app)&apos;);
+
+  console.log.apply(console, args);
+};
+</code></pre><p><strong>二、bind</strong></p>
+<p>绑定函数<br>bind()最简单的用法是创建一个函数，使这个函数不论怎么调用都有同样的this值。常见的错误就像上面的例子一样，将方法从对象中拿出来，然后调用，并且希望this指向原来的对象。如果不做特殊处理，一般会丢失原来的对象。使用bind()方法能够很漂亮的解决这个问题：</p>
+<pre><code>this.num = 9; 
+var mymodule = {
+  num: 81,
+  getNum: function() { 
+    console.log(this.num);
+  }
+};
+
+mymodule.getNum(); // 81
+
+var getNum = mymodule.getNum;
+getNum(); // 9, 因为在这个例子中，&quot;this&quot;指向全局对象
+
+var boundGetNum = getNum.bind(mymodule);
+boundGetNum(); // 81
+</code></pre><p>bind() 方法与 apply 和 call 很相似，也是可以改变函数体内 this 的指向。</p>
+<p>MDN的解释是：bind()方法会创建一个新函数，称为绑定函数，当调用这个绑定函数时，绑定函数会以创建它时传入 bind()方法的第一个参数作为 this，传入 bind() 方法的第二个以及以后的参数加上绑定函数运行时本身的参数按照顺序作为原函数的参数来调用原函数。</p>
+<p>直接来看看具体如何使用，在常见的单体模式中，通常我们会使用 _this , that , self 等保存 this ，这样我们可以在改变了上下文之后继续引用到它。 像这样：</p>
+<pre><code>var foo = {
+    bar : 1,
+    eventBind: function(){
+        var _this = this;
+        $(&apos;.someClass&apos;).on(&apos;click&apos;,function(event) {
+            /* Act on the event */
+            console.log(_this.bar);     //1
+        });
+    }
+}
+</code></pre><p>由于 Javascript 特有的机制，上下文环境在 eventBind:function(){ } 过渡到 $(‘.someClass’).on(‘click’,function(event) { }) 发生了改变，上述使用变量保存 this 这些方式都是有用的，也没有什么问题。当然使用 bind() 可以更加优雅的解决这个问题：</p>
+<pre><code>var foo = {
+    bar : 1,
+    eventBind: function(){
+        $(&apos;.someClass&apos;).on(&apos;click&apos;,function(event) {
+            /* Act on the event */
+            console.log(this.bar);      //1
+        }.bind(this));
+    }
+}
+</code></pre><p>在上述代码里，bind() 创建了一个函数，当这个click事件绑定在被调用的时候，它的 this 关键词会被设置成被传入的值（这里指调用bind()时传入的参数）。因此，这里我们传入想要的上下文 this(其实就是 foo )，到 bind() 函数中。然后，当回调函数被执行的时候， this 便指向 foo 对象。再来一个简单的栗子：</p>
+<pre><code>var bar = function(){
+console.log(this.x);
+}
+var foo = {
+x:3
+}
+bar(); // undefined
+var func = bar.bind(foo);
+func(); // 3
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/01/09/call-apply-bind/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-js原型链理解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1016,88 +1222,6 @@ export default comment
 
 
   
-    <article id="post-nginx" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/13/nginx/">nginx 简单用法</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/13/nginx/" class="archive-article-date">
-  	<time datetime="2018-03-13T09:06:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>Nginx (engine x) 是一个高性能的HTTP和反向代理服务器</p>
-<p><strong>常用命令</strong><br>start nginx : 启动nginx<br>nginx -s reload  ：修改配置后重新加载生效<br>nginx -s reopen  ：重新打开日志文件<br>nginx -t -c /path/to/nginx.conf 测试nginx配置文件是否正确</p>
-<p>关闭nginx：<br>nginx -s stop  :快速停止nginx<br>nginx -s quit  ：完整有序的停止nginx</p>
-<p>如果遇到报错：<br>bash: nginx: command not found</p>
-<p>有可能是你再linux命令行环境下运行了windows命令，</p>
-<p>如果你之前是允许 nginx -s reload报错， 试下 ./nginx -s reload</p>
-<p>或者 用windows系统自带命令行工具运行<br>
-        
-          <a class="article-more-a" href="/2018/03/13/nginx/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">serve</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/13/nginx/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1195,15 +1319,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">blog</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1211,7 +1327,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1219,11 +1339,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">url跳转</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color5">blog</a>
               </li>
             
             <div class="clearfix"></div>
