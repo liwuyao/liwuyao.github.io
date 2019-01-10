@@ -14,10 +14,12 @@
 <meta property="og:url" content="http://yoursite.com/2019/01/10/js中各种边距/index.html">
 <meta property="og:site_name" content="尧的技术博客">
 <meta property="og:description" content="网页可见区域宽：document.body.clientWidth网页可见区域高：document.body.clientHeight网页可见区域宽：document.body.offsetWidth (包括边线的宽)网页可见区域高：document.body.offsetHeight (包括边线的宽)网页正文全文宽：document.body.scrollWidth网页正文全文高：documen">
-<meta property="og:updated_time" content="2019-01-10T02:27:29.330Z">
+<meta property="og:image" content="https://liwuyao.github.io/2019/01/010/js中各种边距/1.jpg">
+<meta property="og:updated_time" content="2019-01-10T02:30:07.980Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js中各种边距">
 <meta name="twitter:description" content="网页可见区域宽：document.body.clientWidth网页可见区域高：document.body.clientHeight网页可见区域宽：document.body.offsetWidth (包括边线的宽)网页可见区域高：document.body.offsetHeight (包括边线的宽)网页正文全文宽：document.body.scrollWidth网页正文全文高：documen">
+<meta name="twitter:image" content="https://liwuyao.github.io/2019/01/010/js中各种边距/1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="尧的技术博客" type="application/atom+xml">
   
@@ -174,6 +176,13 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>网页可见区域宽：document.body.clientWidth<br>网页可见区域高：document.body.clientHeight<br>网页可见区域宽：document.body.offsetWidth (包括边线的宽)<br>网页可见区域高：document.body.offsetHeight (包括边线的宽)<br>网页正文全文宽：document.body.scrollWidth<br>网页正文全文高：document.body.scrollHeight<br>网页被卷去的高：document.body.scrollTop<br>网页被卷去的左：document.body.scrollLeft<br>网页正文部分上：window.screenTop<br>网页正文部分左：window.screenLeft<br>屏幕分辨率的高：window.screen.height<br>屏幕分辨率的宽：window.screen.width<br>屏幕可用工作区高度：window.screen.availHeight<br>屏幕可用工作区宽度：window.screen.availWidth </p>
+<a id="more"></a>
+<p>HTML精确定位:scrollLeft,scrollWidth,clientWidth,offsetWidth<br>scrollHeight: 获取对象的滚动高度。<br>scrollLeft:设置或获取位于对象左边界和窗口中目前可见内容的最左端之间的距离<br>scrollTop:设置或获取位于对象最顶端和窗口中可见内容的最顶端之间的距离<br>scrollWidth:获取对象的滚动宽度<br>offsetHeight:获取对象相对于版面或由父坐标 offsetParent 属性指定的父坐标的高度<br>offsetLeft:获取对象相对于版面或由 offsetParent 属性指定的父坐标的计算左侧位置<br>offsetTop:获取对象相对于版面或由 offsetTop 属性指定的父坐标的计算顶端位置<br>event.clientX 相对文档的水平座标<br>event.clientY 相对文档的垂直座标<br>event.offsetX 相对容器的水平坐标<br>event.offsetY 相对容器的垂直坐标<br>document.documentElement.scrollTop 垂直方向滚动的值<br>event.clientX+document.documentElement.scrollTop 相对文档的水平座标+垂直方向滚动的量 </p>
+<p>IE，FireFox 差异如下： </p>
+<p>IE6.0、FF1.06+：<br>clientWidth = width + padding<br>clientHeight = height + padding<br>offsetWidth = width + padding + border<br>offsetHeight = height + padding + border </p>
+<p>IE5.0/5.5：<br>clientWidth = width - border<br>clientHeight = height - border<br>offsetWidth = width<br>offsetHeight = height </p>
+<p>(需要提一下：CSS中的margin属性，与clientWidth、offsetWidth、clientHeight、offsetHeight均无关)<br>网页可见区域宽： document.body.clientWidth<br>网页可见区域高： document.body.clientHeight<br>网页可见区域宽： document.body.offsetWidth (包括边线的宽)<br>网页可见区域高： document.body.offsetHeight (包括边线的高)<br>网页正文全文宽： document.body.scrollWidth<br>网页正文全文高： document.body.scrollHeight<br>网页被卷去的高： document.body.scrollTop<br>网页被卷去的左： document.body.scrollLeft<br>网页正文部分上： window.screenTop<br>网页正文部分左： window.screenLeft<br>屏幕分辨率的高： window.screen.height<br>屏幕分辨率的宽： window.screen.width<br>屏幕可用工作区高度： window.screen.availHeight<br>屏幕可用工作区宽度： window.screen.availWidth</p>
+<p><img src="https://liwuyao.github.io/2019/01/010/js中各种边距/1.jpg" alt=""></p>
 
       
 
