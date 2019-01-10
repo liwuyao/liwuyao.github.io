@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>关于token说明 | 尧的技术博客</title>
+  <title>react-native使用总结 | 尧的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="介绍 使用基于 Token 的身份验证方法，在服务端不需要存储用户的登录记录。大概的流程是这样的：1.客户端使用用户名跟密码请求登录2.服务端收到请求，去验证用户名与密码3.验证成功后，服务端会签发一个 Token，再把这个 Token 发送给客户端4.客户端收到 Token 以后可以把它存储起来，比如放在 Cookie 里或者 Local Storage 里5.客户端每次向服务端请求资源的时候需">
-<meta name="keywords" content="ajax">
+  <meta name="description" content="一、版本问题  现在的android的开发都要求开发8.0以上的版本。在开发前就得用andorid-studio升级到8.0的sdk； 二、react-native-video插件的使用问题 该插件存在一些android兼容问题。如果遇到是因为你的jar包是基于jdk 1.8的，但当前AS（2.3.1）默认使用的jdk是1.7的； 在app/build.gradle的android对象里加入  c">
+<meta name="keywords" content="react">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于token说明">
-<meta property="og:url" content="http://yoursite.com/2018/02/27/token/index.html">
+<meta property="og:title" content="react-native使用总结">
+<meta property="og:url" content="http://yoursite.com/2019/01/04/react-native使用总结/index.html">
 <meta property="og:site_name" content="尧的技术博客">
-<meta property="og:description" content="介绍 使用基于 Token 的身份验证方法，在服务端不需要存储用户的登录记录。大概的流程是这样的：1.客户端使用用户名跟密码请求登录2.服务端收到请求，去验证用户名与密码3.验证成功后，服务端会签发一个 Token，再把这个 Token 发送给客户端4.客户端收到 Token 以后可以把它存储起来，比如放在 Cookie 里或者 Local Storage 里5.客户端每次向服务端请求资源的时候需">
-<meta property="og:updated_time" content="2018-03-01T06:36:45.590Z">
+<meta property="og:description" content="一、版本问题  现在的android的开发都要求开发8.0以上的版本。在开发前就得用andorid-studio升级到8.0的sdk； 二、react-native-video插件的使用问题 该插件存在一些android兼容问题。如果遇到是因为你的jar包是基于jdk 1.8的，但当前AS（2.3.1）默认使用的jdk是1.7的； 在app/build.gradle的android对象里加入  c">
+<meta property="og:updated_time" content="2019-01-10T07:28:03.439Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于token说明">
-<meta name="twitter:description" content="介绍 使用基于 Token 的身份验证方法，在服务端不需要存储用户的登录记录。大概的流程是这样的：1.客户端使用用户名跟密码请求登录2.服务端收到请求，去验证用户名与密码3.验证成功后，服务端会签发一个 Token，再把这个 Token 发送给客户端4.客户端收到 Token 以后可以把它存储起来，比如放在 Cookie 里或者 Local Storage 里5.客户端每次向服务端请求资源的时候需">
+<meta name="twitter:title" content="react-native使用总结">
+<meta name="twitter:description" content="一、版本问题  现在的android的开发都要求开发8.0以上的版本。在开发前就得用andorid-studio升级到8.0的sdk； 二、react-native-video插件的使用问题 该插件存在一些android兼容问题。如果遇到是因为你的jar包是基于jdk 1.8的，但当前AS（2.3.1）默认使用的jdk是1.7的； 在app/build.gradle的android对象里加入  c">
   
     <link rel="alternative" href="/atom.xml" title="尧的技术博客" type="application/atom+xml">
   
@@ -154,30 +154,101 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-token" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-react-native使用总结" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      关于token说明
+      react-native使用总结
     </h1>
   
 
         
-        <a href="/2018/02/27/token/" class="archive-article-date">
-  	<time datetime="2018-02-27T09:38:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-27</time>
+        <a href="/2019/01/04/react-native使用总结/" class="archive-article-date">
+  	<time datetime="2019-01-04T06:24:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-04</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><blockquote>
-<p>使用基于 Token 的身份验证方法，在服务端不需要存储用户的登录记录。大概的流程是这样的：<br>1.客户端使用用户名跟密码请求登录<br>2.服务端收到请求，去验证用户名与密码<br>3.验证成功后，服务端会签发一个 Token，再把这个 Token 发送给客户端<br>4.客户端收到 Token 以后可以把它存储起来，比如放在 Cookie 里或者 Local Storage 里<br>5.客户端每次向服务端请求资源的时候需要带着服务端签发的 Token<br>6.服务端收到请求，然后去验证客户端请求里面带着的 Token，如果验证成功，就向客户端返回请求的数据</p>
-</blockquote>
-<p><strong>注释</strong><br>前端发送token放在header里(请求头)；<br><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">后端的做法参考博客</a>；</p>
+        <p><strong>一、版本问题</strong><br>  现在的android的开发都要求开发8.0以上的版本。在开发前就得用andorid-studio升级到8.0的sdk；</p>
+<p><strong>二、react-native-video插件的使用问题</strong><br> 该插件存在一些android兼容问题。如果遇到是因为你的jar包是基于jdk 1.8的，但当前AS（2.3.1）默认使用的jdk是1.7的；<br> 在app/build.gradle的android对象里加入</p>
+<pre><code> compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+}
+</code></pre><p><strong>三、react-native-swiper插件的问题</strong><br>该插件在使用scrollBy时候经常出现无反应的问题，等一系列其他问题。当轮播可以，但是不能用作滑动切换工具用，如果要作为切换工具使用<br>更改使用teaset这个UI库里的swiper，这个库的问题较少，不需花太多精力去适配。</p>
+<p><strong>四、使用iconfont</strong><br>1.首先在将选好的iconfont下载到本地，将iconfont.ttf文件放入android/app/src/main/assets/fonts文件夹里;<br>2.安装react-native-vector-icons安装步骤网上搜索一打把;<br>3.创建一个转译iconfont的js文件，此处我命名为oneIconFont,内容如下：</p>
+<pre><code>import {createIconSet} from &apos;react-native-vector-icons&apos;
+
+const glyphMap = {//此处key值是自定义图标的名称，值是，iconfont的Unicode转换成的10进制，就是16进制换行为10进制；
+  icongedan: 58986,
+  music:59008,
+  play:59240,
+  list:58965,
+  search:59004,
+  stop:58962,
+  play2:58901,
+  xiala:58971
+}
+
+const OIcon = createIconSet(glyphMap, &apos;iconfont&apos;, &apos;iconfont.ttf&apos;)
+
+export {OIcon}
+</code></pre><a id="more"></a>
+<p>4.创建一个icon组件，内容如下：</p>
+<pre><code>import FontAwesome from &apos;react-native-vector-icons/FontAwesome&apos;
+import {OIcon} from &apos;./oneIconFont&apos;
+import React, {Component} from &apos;react&apos;
+import PropTypes from &apos;prop-types&apos;
+
+const iconMap = {
+  fontAwesome: FontAwesome,
+  oneIcon: OIcon
+}
+
+class Icon extends Component {
+
+  render() {
+    const {name, size, color} = this.props
+    if (!name.includes(&apos;|&apos;)) {
+      throw new Error(&apos;name 解析错误！&apos;)
+      return null
+    }
+    let nameArr = name.split(&apos;|&apos;)
+    let fontlib = nameArr[0]
+    let font = nameArr[1]
+    let CustomIcon = iconMap[fontlib]
+    if (!CustomIcon) throw new Error(&apos;没有找到匹配的font库，请review代码！&apos;)
+    return (
+      &lt;CustomIcon name={font} size={size} color={color}/&gt;
+    )
+  }
+}
+
+Icon.propTypes = {
+  name: PropTypes.string.isRequired,
+  size: PropTypes.number.isRequired,
+  color: PropTypes.string.isRequired
+}
+
+export {Icon}
+</code></pre><p>5.使用：</p>
+<pre><code>import {Icon} from &apos;./component/icon&apos;
+
+&lt;Icon name={&apos;oneIcon|xiala&apos;} size={25} color={&apos;white&apos;}/&gt;
+</code></pre><p><strong>五、动画和事件同时执行卡顿问题</strong></p>
+<pre><code>InteractionManager.runAfterInteractions(() =&gt; {
+    this.setState({
+          isShowSongList:true
+      })
+});
+</code></pre><p>使用此方法解决，此方法的意思是在动画执行完成后在执行事件。</p>
+<p><strong>六、render()渲染问题</strong></p>
+<p>每次用数据改变视图都会调用一次render()函数，所以render函数的调用不能频率过高，会造成动画的阻塞。在改变视图的同时，动画也在执行，就会<br>看见动画有卡顿问题。而且视图的改变频率不能超过250ms一次；</p>
 
       
 
@@ -212,7 +283,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">ajax</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
         		</li>
       		
 		</ul>
@@ -268,7 +339,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/02/27/token/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/01/04/react-native使用总结/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -282,18 +353,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/03/01/CSS3-选择器/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/01/08/js原型链理解/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          CSS3 选择器
+          js原型链理解
         
       </div>
     </a>
   
   
-    <a href="/2018/02/27/ajax/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">ajax的介绍及使用</div>
+    <a href="/2018/10/11/手机适配/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">手机适配</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -323,7 +394,7 @@
   
 
   
-  <div id="SOHUCS" sid="token" ></div> 
+  <div id="SOHUCS" sid="react-native使用总结" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({

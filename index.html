@@ -589,6 +589,106 @@ alert(dogB.species); // 犬科
 
 
   
+    <article id="post-react-native使用总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/04/react-native使用总结/">react-native使用总结</a>
+    </h1>
+  
+
+        
+        <a href="/2019/01/04/react-native使用总结/" class="archive-article-date">
+  	<time datetime="2019-01-04T06:24:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>一、版本问题</strong><br>  现在的android的开发都要求开发8.0以上的版本。在开发前就得用andorid-studio升级到8.0的sdk；</p>
+<p><strong>二、react-native-video插件的使用问题</strong><br> 该插件存在一些android兼容问题。如果遇到是因为你的jar包是基于jdk 1.8的，但当前AS（2.3.1）默认使用的jdk是1.7的；<br> 在app/build.gradle的android对象里加入</p>
+<pre><code> compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+}
+</code></pre><p><strong>三、react-native-swiper插件的问题</strong><br>该插件在使用scrollBy时候经常出现无反应的问题，等一系列其他问题。当轮播可以，但是不能用作滑动切换工具用，如果要作为切换工具使用<br>更改使用teaset这个UI库里的swiper，这个库的问题较少，不需花太多精力去适配。</p>
+<p><strong>四、使用iconfont</strong><br>1.首先在将选好的iconfont下载到本地，将iconfont.ttf文件放入android/app/src/main/assets/fonts文件夹里;<br>2.安装react-native-vector-icons安装步骤网上搜索一打把;<br>3.创建一个转译iconfont的js文件，此处我命名为oneIconFont,内容如下：</p>
+<pre><code>import {createIconSet} from &apos;react-native-vector-icons&apos;
+
+const glyphMap = {//此处key值是自定义图标的名称，值是，iconfont的Unicode转换成的10进制，就是16进制换行为10进制；
+  icongedan: 58986,
+  music:59008,
+  play:59240,
+  list:58965,
+  search:59004,
+  stop:58962,
+  play2:58901,
+  xiala:58971
+}
+
+const OIcon = createIconSet(glyphMap, &apos;iconfont&apos;, &apos;iconfont.ttf&apos;)
+
+export {OIcon}
+</code></pre>
+        
+          <a class="article-more-a" href="/2019/01/04/react-native使用总结/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/01/04/react-native使用总结/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-手机适配" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -955,91 +1055,9 @@ forms.append(&apos;ObjType&apos;, &apos;0100&apos;); //append方法用来添加�
 
 
   
-    <article id="post-url跳转问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/06/url跳转问题/">url跳转问题</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/06/url跳转问题/" class="archive-article-date">
-  	<time datetime="2018-07-06T08:18:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在一些业务中，我们需要做打开新网页的操作，但是goole浏览器会因为安全问题拦截这样的操作，需要人为去取消这样的拦截。如果让用户自己去取消拦截，这样会导致体验很差，且大多数用户不知道如何取消拦截</p>
-<p>解决方案1</p>
-<p>如果是跳转已有页面不做业务上的操作，设置a标签的target为”_blank”<br><a href="" target="_blank"></a></p>
-<p>解决方案2</p>
-<p>如果想要在跳转前做普通操作</p>
-<pre><code>window.open(url)
-</code></pre><p>解决方案3<br>如果在跳转前想要做提交表单请求，浏览器会拦截，解决方法如下。</p>
-<pre><code>var win = window.open(url) //win就相当于新窗口，你可以做win.body,win.document.getElementById等操作。url也可是静态html路径；
-    win.document.forms[0].submit()
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">url跳转</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/06/url跳转问题/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -1134,14 +1152,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">angular</a>
               </li>
              
@@ -1150,11 +1160,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color3">express</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">express</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1162,7 +1172,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">url跳转</a>
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1170,7 +1184,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">url跳转</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">手机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
             
             <div class="clearfix"></div>
