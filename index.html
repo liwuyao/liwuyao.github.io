@@ -151,30 +151,32 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-js中各种边距" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-vue父组件调用子组件技巧" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/10/js中各种边距/">js中各种边距</a>
+      <a class="article-title" href="/2019/01/10/vue父组件调用子组件技巧/">vue父组件调用子组件技巧</a>
     </h1>
   
 
         
-        <a href="/2019/01/10/js中各种边距/" class="archive-article-date">
-  	<time datetime="2019-01-10T02:04:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-10</time>
+        <a href="/2019/01/10/vue父组件调用子组件技巧/" class="archive-article-date">
+  	<time datetime="2019-01-10T06:21:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-10</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>网页可见区域宽：document.body.clientWidth<br>网页可见区域高：document.body.clientHeight<br>网页可见区域宽：document.body.offsetWidth (包括边线的宽)<br>网页可见区域高：document.body.offsetHeight (包括边线的宽)<br>网页正文全文宽：document.body.scrollWidth<br>网页正文全文高：document.body.scrollHeight<br>网页被卷去的高：document.body.scrollTop<br>网页被卷去的左：document.body.scrollLeft<br>网页正文部分上：window.screenTop<br>网页正文部分左：window.screenLeft<br>屏幕分辨率的高：window.screen.height<br>屏幕分辨率的宽：window.screen.width<br>屏幕可用工作区高度：window.screen.availHeight<br>屏幕可用工作区宽度：window.screen.availWidth </p>
-        
-          <a class="article-more-a" href="/2019/01/10/js中各种边距/#more">more >></a>
-        
+        <p>如下给组件绑定一个ref</p>
+<pre><code>&lt;create-product ref=&quot;rproduct&quot; @getProductInfo=&quot;productFn&quot;&gt;&lt;/create-product&gt;
+</code></pre><p>接着如下就能获取到组件对象的数据</p>
+<pre><code>this.$refs.rproduct
+</code></pre><p>eg：如果要关闭一个弹框，就可以如此this.$refs.rproduct.dailog=false;</p>
+
       
 
       
@@ -186,7 +188,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/10/js中各种边距/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/01/10/vue父组件调用子组件技巧/">展开全文 >></a>
         </p>
       
 
@@ -376,95 +378,6 @@ alert(dogB.species); // 犬科
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/01/08/js原型链理解/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-react-native使用总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/04/react-native使用总结/">react-native使用总结</a>
-    </h1>
-  
-
-        
-        <a href="/2019/01/04/react-native使用总结/" class="archive-article-date">
-  	<time datetime="2019-01-04T06:24:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>一、版本问题</strong><br>  现在的android的开发都要求开发8.0以上的版本。在开发前就得用andorid-studio升级到8.0的sdk；</p>
-<p><strong>二、react-native-video插件的使用问题</strong><br> 该插件存在一些android兼容问题。如果遇到是因为你的jar包是基于jdk 1.8的，但当前AS（2.3.1）默认使用的jdk是1.7的；<br> 在app/build.gradle的android对象里加入</p>
-<pre><code> compileOptions {
-    sourceCompatibility JavaVersion.VERSION_1_8
-    targetCompatibility JavaVersion.VERSION_1_8
-}
-</code></pre><p><strong>三、react-native-swiper插件的问题</strong><br>该插件在使用scrollBy时候经常出现无反应的问题，等一系列其他问题。当轮播可以，但是不能用作滑动切换工具用，如果要作为切换工具使用<br>更改使用teaset这个UI库里的swiper，这个库的问题较少，不需花太多精力去适配。</p>
-<p><strong>四、使用iconfont</strong><br>1.首先在将选好的iconfont下载到本地，将iconfont.ttf文件放入android/app/src/main/assets/fonts文件夹里;<br>2.安装react-native-vector-icons安装步骤网上搜索一打把;<br>3.创建一个转译iconfont的js文件，此处我命名为oneIconFont,内容如下：</p>
-<pre><code>import {createIconSet} from &apos;react-native-vector-icons&apos;
-
-const glyphMap = {//此处key值是自定义图标的名称，值是，iconfont的Unicode转换成的10进制，就是16进制换行为10进制；
-  icongedan: 58986,
-  music:59008,
-  play:59240,
-  list:58965,
-  search:59004,
-  stop:58962,
-  play2:58901,
-  xiala:58971
-}
-
-const OIcon = createIconSet(glyphMap, &apos;iconfont&apos;, &apos;iconfont.ttf&apos;)
-
-export {OIcon}
-</code></pre>
-        
-          <a class="article-more-a" href="/2019/01/04/react-native使用总结/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/04/react-native使用总结/">展开全文 >></a>
         </p>
       
 
@@ -1038,6 +951,91 @@ export default comment
 
 
   
+    <article id="post-用lable自定义radio" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/14/用lable自定义radio/">用lable自定义radio</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/14/用lable自定义radio/" class="archive-article-date">
+  	<time datetime="2018-03-14T02:47:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>lable</strong><br>介绍：<br>label 元素不会向用户呈现任何特殊效果。不过，它为鼠标用户改进了可用性。如果您在 label 元素内点击文本，就会触发此控件。<br>就是说，当用户选择该标签时，浏览器就会自动将焦点转到和标签相关的表单控件上。<br>用法：</p>
+<pre><code>&lt;form&gt;
+&lt;label for=&quot;male&quot;&gt;Male&lt;/label&gt;
+&lt;input type=&quot;radio&quot; name=&quot;sex&quot; id=&quot;male&quot; /&gt;
+&lt;br /&gt;
+&lt;label for=&quot;female&quot;&gt;Female&lt;/label&gt;
+&lt;input type=&quot;radio&quot; name=&quot;sex&quot; id=&quot;female&quot; /&gt;
+&lt;/form&gt;
+</code></pre><p>label里的for与input的id保持一致就能控制相应的radio。<br>用lable自定义radio，html部分不变，主要是css部分，要隐藏掉radio；</p>
+<p>html部分<br>
+        
+          <a class="article-more-a" href="/2018/03/14/用lable自定义radio/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/14/用lable自定义radio/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1139,15 +1137,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">express</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
