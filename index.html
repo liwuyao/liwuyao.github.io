@@ -151,6 +151,71 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-js中各种边距" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/10/js中各种边距/">js中各种边距</a>
+    </h1>
+  
+
+        
+        <a href="/2019/01/10/js中各种边距/" class="archive-article-date">
+  	<time datetime="2019-01-10T02:04:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>网页可见区域宽：document.body.clientWidth<br>网页可见区域高：document.body.clientHeight<br>网页可见区域宽：document.body.offsetWidth (包括边线的宽)<br>网页可见区域高：document.body.offsetHeight (包括边线的宽)<br>网页正文全文宽：document.body.scrollWidth<br>网页正文全文高：document.body.scrollHeight<br>网页被卷去的高：document.body.scrollTop<br>网页被卷去的左：document.body.scrollLeft<br>网页正文部分上：window.screenTop<br>网页正文部分左：window.screenLeft<br>屏幕分辨率的高：window.screen.height<br>屏幕分辨率的宽：window.screen.width<br>屏幕可用工作区高度：window.screen.availHeight<br>屏幕可用工作区宽度：window.screen.availWidth </p>
+        
+          <a class="article-more-a" href="/2019/01/10/js中各种边距/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/01/10/js中各种边距/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-call-apply-bind" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -940,88 +1005,6 @@ export default comment
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/03/14/用lable自定义radio/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-nginx" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/13/nginx/">nginx 简单用法</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/13/nginx/" class="archive-article-date">
-  	<time datetime="2018-03-13T09:06:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>Nginx (engine x) 是一个高性能的HTTP和反向代理服务器</p>
-<p><strong>常用命令</strong><br>start nginx : 启动nginx<br>nginx -s reload  ：修改配置后重新加载生效<br>nginx -s reopen  ：重新打开日志文件<br>nginx -t -c /path/to/nginx.conf 测试nginx配置文件是否正确</p>
-<p>关闭nginx：<br>nginx -s stop  :快速停止nginx<br>nginx -s quit  ：完整有序的停止nginx</p>
-<p>如果遇到报错：<br>bash: nginx: command not found</p>
-<p>有可能是你再linux命令行环境下运行了windows命令，</p>
-<p>如果你之前是允许 nginx -s reload报错， 试下 ./nginx -s reload</p>
-<p>或者 用windows系统自带命令行工具运行<br>
-        
-          <a class="article-more-a" href="/2018/03/13/nginx/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">serve</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/13/nginx/">展开全文 >></a>
         </p>
       
 

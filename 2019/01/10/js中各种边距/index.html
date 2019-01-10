@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>call apply bind | 尧的技术博客</title>
+  <title>js中各种边距 | 尧的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、call bind apply：调用一个对象的一个方法，用另一个对象替换当前对象。例如：B.apply(A, arguments);即A对象应用B对象的方法。 call：调用一个对象的一个方法，用另一个对象替换当前对象。例如：B.call(A, args1,args2);即A对象调用B对象的方法。 它们的共同之处 都“可以用来代替另一个对象调用一个方法，将一个函数的对象上下文从初始的上下文改变">
-<meta name="keywords" content="js">
+  <meta name="description" content="网页可见区域宽：document.body.clientWidth网页可见区域高：document.body.clientHeight网页可见区域宽：document.body.offsetWidth (包括边线的宽)网页可见区域高：document.body.offsetHeight (包括边线的宽)网页正文全文宽：document.body.scrollWidth网页正文全文高：documen">
 <meta property="og:type" content="article">
-<meta property="og:title" content="call apply bind">
-<meta property="og:url" content="http://yoursite.com/2019/01/09/call-apply-bind/index.html">
+<meta property="og:title" content="js中各种边距">
+<meta property="og:url" content="http://yoursite.com/2019/01/10/js中各种边距/index.html">
 <meta property="og:site_name" content="尧的技术博客">
-<meta property="og:description" content="一、call bind apply：调用一个对象的一个方法，用另一个对象替换当前对象。例如：B.apply(A, arguments);即A对象应用B对象的方法。 call：调用一个对象的一个方法，用另一个对象替换当前对象。例如：B.call(A, args1,args2);即A对象调用B对象的方法。 它们的共同之处 都“可以用来代替另一个对象调用一个方法，将一个函数的对象上下文从初始的上下文改变">
-<meta property="og:updated_time" content="2019-01-10T02:21:33.688Z">
+<meta property="og:description" content="网页可见区域宽：document.body.clientWidth网页可见区域高：document.body.clientHeight网页可见区域宽：document.body.offsetWidth (包括边线的宽)网页可见区域高：document.body.offsetHeight (包括边线的宽)网页正文全文宽：document.body.scrollWidth网页正文全文高：documen">
+<meta property="og:image" content="https://liwuyao.github.io/2019/01/10/js中各种边距/1.jpg">
+<meta property="og:updated_time" content="2019-01-10T06:30:55.762Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="call apply bind">
-<meta name="twitter:description" content="一、call bind apply：调用一个对象的一个方法，用另一个对象替换当前对象。例如：B.apply(A, arguments);即A对象应用B对象的方法。 call：调用一个对象的一个方法，用另一个对象替换当前对象。例如：B.call(A, args1,args2);即A对象调用B对象的方法。 它们的共同之处 都“可以用来代替另一个对象调用一个方法，将一个函数的对象上下文从初始的上下文改变">
+<meta name="twitter:title" content="js中各种边距">
+<meta name="twitter:description" content="网页可见区域宽：document.body.clientWidth网页可见区域高：document.body.clientHeight网页可见区域宽：document.body.offsetWidth (包括边线的宽)网页可见区域高：document.body.offsetHeight (包括边线的宽)网页正文全文宽：document.body.scrollWidth网页正文全文高：documen">
+<meta name="twitter:image" content="https://liwuyao.github.io/2019/01/10/js中各种边距/1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="尧的技术博客" type="application/atom+xml">
   
@@ -154,161 +155,35 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-call-apply-bind" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-js中各种边距" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      call apply bind
+      js中各种边距
     </h1>
   
 
         
-        <a href="/2019/01/09/call-apply-bind/" class="archive-article-date">
-  	<time datetime="2019-01-09T07:19:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-09</time>
+        <a href="/2019/01/10/js中各种边距/" class="archive-article-date">
+  	<time datetime="2019-01-10T02:04:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-10</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>一、call bind</strong></p>
-<p>apply：调用一个对象的一个方法，用另一个对象替换当前对象。例如：B.apply(A, arguments);即A对象应用B对象的方法。</p>
-<p>call：调用一个对象的一个方法，用另一个对象替换当前对象。例如：B.call(A, args1,args2);即A对象调用B对象的方法。</p>
-<p><strong>它们的共同之处</strong></p>
-<p>都“可以用来代替另一个对象调用一个方法，将一个函数的对象上下文从初始的上下文改变为由thisObj指定的新对象”。</p>
-<p><strong>它们的不同之处</strong></p>
-<p>apply：最多只能有两个参数——新this对象和一个数组argArray。如果给该方法传递多个参数，则把参数都写进这个数组里面，当然，即使只有一个参数，也要写进数组里。如果argArray不是一个有效的数组或arguments对象，那么将导致一个TypeError。如果没有提供argArray和thisObj任何一个参数，那么Global对象将被用作thisObj，并且无法被传递任何参数。</p>
-<p>call：它可以接受多个参数，第一个参数与apply一样，后面则是一串参数列表。这个方法主要用在js对象各方法相互调用的时候，使当前this实例指针保持一致，或者在特殊情况下需要改变this指针。如果没有提供thisObj参数，那么 Global 对象被用作thisObj。 </p>
-<p>实际上，apply和call的功能是一样的，只是传入的参数列表形式不同。</p>
-<p>实现继承</p>
-<pre><code>function Animal(name){
-  this.name = name;
-  this.showName = function(){
-        alert(this.name);    
-    }    
-}
+        <p>网页可见区域宽：document.body.clientWidth<br>网页可见区域高：document.body.clientHeight<br>网页可见区域宽：document.body.offsetWidth (包括边线的宽)<br>网页可见区域高：document.body.offsetHeight (包括边线的宽)<br>网页正文全文宽：document.body.scrollWidth<br>网页正文全文高：document.body.scrollHeight<br>网页被卷去的高：document.body.scrollTop<br>网页被卷去的左：document.body.scrollLeft<br>网页正文部分上：window.screenTop<br>网页正文部分左：window.screenLeft<br>屏幕分辨率的高：window.screen.height<br>屏幕分辨率的宽：window.screen.width<br>屏幕可用工作区高度：window.screen.availHeight<br>屏幕可用工作区宽度：window.screen.availWidth </p>
+<a id="more"></a>
+<p>HTML精确定位:scrollLeft,scrollWidth,clientWidth,offsetWidth<br>scrollHeight: 获取对象的滚动高度。<br>scrollLeft:设置或获取位于对象左边界和窗口中目前可见内容的最左端之间的距离<br>scrollTop:设置或获取位于对象最顶端和窗口中可见内容的最顶端之间的距离<br>scrollWidth:获取对象的滚动宽度<br>offsetHeight:获取对象相对于版面或由父坐标 offsetParent 属性指定的父坐标的高度<br>offsetLeft:获取对象相对于版面或由 offsetParent 属性指定的父坐标的计算左侧位置<br>offsetTop:获取对象相对于版面或由 offsetTop 属性指定的父坐标的计算顶端位置<br>event.clientX 相对文档的水平座标<br>event.clientY 相对文档的垂直座标<br>event.offsetX 相对容器的水平坐标<br>event.offsetY 相对容器的垂直坐标<br>document.documentElement.scrollTop 垂直方向滚动的值<br>event.clientX+document.documentElement.scrollTop 相对文档的水平座标+垂直方向滚动的量 </p>
+<p>IE，FireFox 差异如下： </p>
+<p>IE6.0、FF1.06+：<br>clientWidth = width + padding<br>clientHeight = height + padding<br>offsetWidth = width + padding + border<br>offsetHeight = height + padding + border </p>
+<p>IE5.0/5.5：<br>clientWidth = width - border<br>clientHeight = height - border<br>offsetWidth = width<br>offsetHeight = height </p>
+<p>(需要提一下：CSS中的margin属性，与clientWidth、offsetWidth、clientHeight、offsetHeight均无关)<br>网页可见区域宽： document.body.clientWidth<br>网页可见区域高： document.body.clientHeight<br>网页可见区域宽： document.body.offsetWidth (包括边线的宽)<br>网页可见区域高： document.body.offsetHeight (包括边线的高)<br>网页正文全文宽： document.body.scrollWidth<br>网页正文全文高： document.body.scrollHeight<br>网页被卷去的高： document.body.scrollTop<br>网页被卷去的左： document.body.scrollLeft<br>网页正文部分上： window.screenTop。<br>屏幕分辨率的高： window.screen.height<br>屏幕分辨率的宽： window.screen.width<br>屏幕可用工作区高度： window.screen.availHeight<br>屏幕可用工作区宽度： window.screen.availWidth</p>
+<p><img src="https://liwuyao.github.io/2019/01/10/js中各种边距/1.jpg" alt=""></p>
 
-function Cat(name){
-  Animal.apply(this,[name]);    
-}
-
-var cat = new Cat(&quot;咕咕&quot;);
-cat.showName();
-
-/*call的用法*/
-Animal.call(this,name);
-</code></pre><a id="more"></a>
-<p>多重继承</p>
-<pre><code>function Class10(){
-  this.showSub = function(a,b){
-        alert(a - b);
-    }   
-}
-
-function Class11(){
-  this.showAdd = function(a,b){
-        alert(a + b);
-    }  
-}
-
-function Class12(){
-  Class10.apply(this);
-  Class11.apply(this);   
-  // Class10.call(this);
-  //Class11.call(this);  
-}
-
-var c2 = new Class12();
-c2.showSub(3,1);    //2
-c2.showAdd(3,1);    //4
-</code></pre><p>数组之间追加</p>
-<pre><code>var array1 = [12 , &quot;foo&quot; , {name:&quot;Joe&quot;} , -2458]; 
-var array2 = [&quot;Doe&quot; , 555 , 100]; 
-Array.prototype.push.apply(array1, array2); 
-</code></pre><p>获取数组中的最大值和最小值</p>
-<pre><code>var  numbers = [5, 458 , 120 , -215 ]; 
-var maxInNumbers = Math.max.apply(Math, numbers),   //458
-maxInNumbers = Math.max.call(Math,5, 458 , 120 , -215); //458
-</code></pre><p>验证是否是数组（前提是toString()方法没有被重写过，也是用isArray验证）</p>
-<pre><code>functionisArray(obj){ 
-    return Object.prototype.toString.call(obj) === &apos;[object Array]&apos; ;
-}
-</code></pre><p>面试题</p>
-<p>定义一个 log 方法，让它可以代理 console.log 方法，常见的解决方法是：</p>
-<pre><code>function log(msg)　{
-  console.log(msg);
-}
-log(1);    //1
-log(1,2);    //1
-</code></pre><p>上面方法可以解决最基本的需求，但是当传入参数的个数是不确定的时候，上面的方法就失效了，这个时候就可以考虑使用 apply 或者 call，注意这里传入多少个参数是不确定的，所以使用apply是最好的，方法如下：</p>
-<pre><code>function log(){
-  console.log.apply(console, arguments);
-};
-log(1);    //1
-log(1,2);    //1 2
-</code></pre><p>接下来的要求是给每一个 log 消息添加一个”(app)”的前辍，比如：</p>
-<pre><code>log(&quot;hello world&quot;); //(app)hello world
-</code></pre><p>该怎么做比较优雅呢?这个时候需要想到arguments参数是个伪数组，通过 Array.prototype.slice.call 转化为标准数组，再使用数组方法unshift，像这样：</p>
-<pre><code>function log(){
-  var args = Array.prototype.slice.call(arguments);
-  args.unshift(&apos;(app)&apos;);
-
-  console.log.apply(console, args);
-};
-</code></pre><p><strong>二、bind</strong></p>
-<p>绑定函数<br>bind()最简单的用法是创建一个函数，使这个函数不论怎么调用都有同样的this值。常见的错误就像上面的例子一样，将方法从对象中拿出来，然后调用，并且希望this指向原来的对象。如果不做特殊处理，一般会丢失原来的对象。使用bind()方法能够很漂亮的解决这个问题：</p>
-<pre><code>this.num = 9; 
-var mymodule = {
-  num: 81,
-  getNum: function() { 
-    console.log(this.num);
-  }
-};
-
-mymodule.getNum(); // 81
-
-var getNum = mymodule.getNum;
-getNum(); // 9, 因为在这个例子中，&quot;this&quot;指向全局对象
-
-var boundGetNum = getNum.bind(mymodule);
-boundGetNum(); // 81
-</code></pre><p>bind() 方法与 apply 和 call 很相似，也是可以改变函数体内 this 的指向。</p>
-<p>MDN的解释是：bind()方法会创建一个新函数，称为绑定函数，当调用这个绑定函数时，绑定函数会以创建它时传入 bind()方法的第一个参数作为 this，传入 bind() 方法的第二个以及以后的参数加上绑定函数运行时本身的参数按照顺序作为原函数的参数来调用原函数。</p>
-<p>直接来看看具体如何使用，在常见的单体模式中，通常我们会使用 _this , that , self 等保存 this ，这样我们可以在改变了上下文之后继续引用到它。 像这样：</p>
-<pre><code>var foo = {
-    bar : 1,
-    eventBind: function(){
-        var _this = this;
-        $(&apos;.someClass&apos;).on(&apos;click&apos;,function(event) {
-            /* Act on the event */
-            console.log(_this.bar);     //1
-        });
-    }
-}
-</code></pre><p>由于 Javascript 特有的机制，上下文环境在 eventBind:function(){ } 过渡到 $(‘.someClass’).on(‘click’,function(event) { }) 发生了改变，上述使用变量保存 this 这些方式都是有用的，也没有什么问题。当然使用 bind() 可以更加优雅的解决这个问题：</p>
-<pre><code>var foo = {
-    bar : 1,
-    eventBind: function(){
-        $(&apos;.someClass&apos;).on(&apos;click&apos;,function(event) {
-            /* Act on the event */
-            console.log(this.bar);      //1
-        }.bind(this));
-    }
-}
-</code></pre><p>在上述代码里，bind() 创建了一个函数，当这个click事件绑定在被调用的时候，它的 this 关键词会被设置成被传入的值（这里指调用bind()时传入的参数）。因此，这里我们传入想要的上下文 this(其实就是 foo )，到 bind() 函数中。然后，当回调函数被执行的时候， this 便指向 foo 对象。再来一个简单的栗子：</p>
-<pre><code>var bar = function(){
-console.log(this.x);
-}
-var foo = {
-x:3
-}
-bar(); // undefined
-var func = bar.bind(foo);
-func(); // 3
-</code></pre>
       
 
       
@@ -337,17 +212,6 @@ func(); // 3
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -398,7 +262,7 @@ func(); // 3
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/01/09/call-apply-bind/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/01/10/js中各种边距/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -412,18 +276,9 @@ func(); // 3
   
 <nav id="article-nav">
   
-    <a href="/2019/01/10/js中各种边距/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          js中各种边距
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/01/08/js原型链理解/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">js原型链理解</div>
+    <a href="/2019/01/09/call-apply-bind/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">call apply bind</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -453,7 +308,7 @@ func(); // 3
   
 
   
-  <div id="SOHUCS" sid="call-apply-bind" ></div> 
+  <div id="SOHUCS" sid="js中各种边距" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
