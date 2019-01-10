@@ -197,114 +197,10 @@ cat.showName();
 
 /*call的用法*/
 Animal.call(this,name);
-</code></pre><p>多重继承</p>
-<pre><code>function Class10(){
-  this.showSub = function(a,b){
-        alert(a - b);
-    }   
-}
-
-function Class11(){
-  this.showAdd = function(a,b){
-        alert(a + b);
-    }  
-}
-
-function Class12(){
-  Class10.apply(this);
-  Class11.apply(this);   
-  // Class10.call(this);
-  //Class11.call(this);  
-}
-
-var c2 = new Class12();
-c2.showSub(3,1);    //2
-c2.showAdd(3,1);    //4
-</code></pre><p>数组之间追加</p>
-<pre><code>var array1 = [12 , &quot;foo&quot; , {name:&quot;Joe&quot;} , -2458]; 
-var array2 = [&quot;Doe&quot; , 555 , 100]; 
-Array.prototype.push.apply(array1, array2); 
-</code></pre><p>获取数组中的最大值和最小值</p>
-<pre><code>var  numbers = [5, 458 , 120 , -215 ]; 
-var maxInNumbers = Math.max.apply(Math, numbers),   //458
-maxInNumbers = Math.max.call(Math,5, 458 , 120 , -215); //458
-</code></pre><p>验证是否是数组（前提是toString()方法没有被重写过，也是用isArray验证）</p>
-<pre><code>functionisArray(obj){ 
-    return Object.prototype.toString.call(obj) === &apos;[object Array]&apos; ;
-}
-</code></pre><p>面试题</p>
-<p>定义一个 log 方法，让它可以代理 console.log 方法，常见的解决方法是：</p>
-<pre><code>function log(msg)　{
-  console.log(msg);
-}
-log(1);    //1
-log(1,2);    //1
-</code></pre><p>上面方法可以解决最基本的需求，但是当传入参数的个数是不确定的时候，上面的方法就失效了，这个时候就可以考虑使用 apply 或者 call，注意这里传入多少个参数是不确定的，所以使用apply是最好的，方法如下：</p>
-<pre><code>function log(){
-  console.log.apply(console, arguments);
-};
-log(1);    //1
-log(1,2);    //1 2
-</code></pre><p>接下来的要求是给每一个 log 消息添加一个”(app)”的前辍，比如：</p>
-<pre><code>log(&quot;hello world&quot;); //(app)hello world
-</code></pre><p>该怎么做比较优雅呢?这个时候需要想到arguments参数是个伪数组，通过 Array.prototype.slice.call 转化为标准数组，再使用数组方法unshift，像这样：</p>
-<pre><code>function log(){
-  var args = Array.prototype.slice.call(arguments);
-  args.unshift(&apos;(app)&apos;);
-
-  console.log.apply(console, args);
-};
-</code></pre><p><strong>二、bind</strong></p>
-<p>绑定函数<br>bind()最简单的用法是创建一个函数，使这个函数不论怎么调用都有同样的this值。常见的错误就像上面的例子一样，将方法从对象中拿出来，然后调用，并且希望this指向原来的对象。如果不做特殊处理，一般会丢失原来的对象。使用bind()方法能够很漂亮的解决这个问题：</p>
-<pre><code>this.num = 9; 
-var mymodule = {
-  num: 81,
-  getNum: function() { 
-    console.log(this.num);
-  }
-};
-
-mymodule.getNum(); // 81
-
-var getNum = mymodule.getNum;
-getNum(); // 9, 因为在这个例子中，&quot;this&quot;指向全局对象
-
-var boundGetNum = getNum.bind(mymodule);
-boundGetNum(); // 81
-</code></pre><p>bind() 方法与 apply 和 call 很相似，也是可以改变函数体内 this 的指向。</p>
-<p>MDN的解释是：bind()方法会创建一个新函数，称为绑定函数，当调用这个绑定函数时，绑定函数会以创建它时传入 bind()方法的第一个参数作为 this，传入 bind() 方法的第二个以及以后的参数加上绑定函数运行时本身的参数按照顺序作为原函数的参数来调用原函数。</p>
-<p>直接来看看具体如何使用，在常见的单体模式中，通常我们会使用 _this , that , self 等保存 this ，这样我们可以在改变了上下文之后继续引用到它。 像这样：</p>
-<pre><code>var foo = {
-    bar : 1,
-    eventBind: function(){
-        var _this = this;
-        $(&apos;.someClass&apos;).on(&apos;click&apos;,function(event) {
-            /* Act on the event */
-            console.log(_this.bar);     //1
-        });
-    }
-}
-</code></pre><p>由于 Javascript 特有的机制，上下文环境在 eventBind:function(){ } 过渡到 $(‘.someClass’).on(‘click’,function(event) { }) 发生了改变，上述使用变量保存 this 这些方式都是有用的，也没有什么问题。当然使用 bind() 可以更加优雅的解决这个问题：</p>
-<pre><code>var foo = {
-    bar : 1,
-    eventBind: function(){
-        $(&apos;.someClass&apos;).on(&apos;click&apos;,function(event) {
-            /* Act on the event */
-            console.log(this.bar);      //1
-        }.bind(this));
-    }
-}
-</code></pre><p>在上述代码里，bind() 创建了一个函数，当这个click事件绑定在被调用的时候，它的 this 关键词会被设置成被传入的值（这里指调用bind()时传入的参数）。因此，这里我们传入想要的上下文 this(其实就是 foo )，到 bind() 函数中。然后，当回调函数被执行的时候， this 便指向 foo 对象。再来一个简单的栗子：</p>
-<pre><code>var bar = function(){
-console.log(this.x);
-}
-var foo = {
-x:3
-}
-bar(); // undefined
-var func = bar.bind(foo);
-func(); // 3
 </code></pre>
+        
+          <a class="article-more-a" href="/2019/01/09/call-apply-bind/#more">more >></a>
+        
       
 
       
@@ -399,23 +295,10 @@ var dogA = new DOG(&apos;大毛&apos;);
 var dogB = new DOG(&apos;二毛&apos;);
 alert(dogA.species); // 犬科
 alert(dogB.species); // 犬科
-</code></pre><p>三、原型链</p>
-<p>proto：事实上就是原型链指针！！</p>
-<p>prototype：指向原型对象的</p>
-<p>constructor：每一个原型对象都包含一个指向构造函数的指针，就是constructor</p>
-<p><img src="https://liwuyao.github.io/2019/01/08/js原型链理解/1.jpg" alt="">；</p>
-<p>所以对象f1的原型链：f1.<strong>proto</strong>—-&gt;Fn.prototype.<strong>proto</strong>—–&gt;Object.prototype.<strong>prototype</strong>—-&gt;null</p>
-<p>调用一个实例的某属性的时候，js会先在自身函数上寻找，如果没找到，就会顺着<em>proto</em>指针向上寻找原型对象，如果没找到继续向上找；<br>如果自身的属性名和原型对象的属性名重名，默认调用自身的属性名。</p>
-<p>原型链里面的一些详细说明例子（作为了解，个人觉得在写代码时作用不大）：</p>
-<pre><code>function person(){
-}
-
-var person1 = new person();
-</code></pre><p>这两者的关系是这样<br>Person.prototype.constructor == Person;<br>person1.<strong>proto</strong> == Person.prototype;<br>person1.constructor == Person;</p>
-<p>person1 为什么有 constructor 属性？那是因为 person1 是 Person 的实例。<br>那 Person.prototype 为什么有 constructor 属性？？同理， Person.prototype （你把它想象成 A） 也是Person 的实例。<br>也就是在 Person 创建的时候，创建了一个它的实例对象并赋值给它的 prototype，基本过程如下：</p>
-<pre><code>var A = new Person();
-Person.prototype = A;
 </code></pre>
+        
+          <a class="article-more-a" href="/2019/01/08/js原型链理解/#more">more >></a>
+        
       
 
       
@@ -501,57 +384,10 @@ const glyphMap = {//此处key值是自定义图标的名称，值是，iconfont�
 const OIcon = createIconSet(glyphMap, &apos;iconfont&apos;, &apos;iconfont.ttf&apos;)
 
 export {OIcon}
-</code></pre><p>4.创建一个icon组件，内容如下：</p>
-<pre><code>import FontAwesome from &apos;react-native-vector-icons/FontAwesome&apos;
-import {OIcon} from &apos;./oneIconFont&apos;
-import React, {Component} from &apos;react&apos;
-import PropTypes from &apos;prop-types&apos;
-
-const iconMap = {
-  fontAwesome: FontAwesome,
-  oneIcon: OIcon
-}
-
-class Icon extends Component {
-
-  render() {
-    const {name, size, color} = this.props
-    if (!name.includes(&apos;|&apos;)) {
-      throw new Error(&apos;name 解析错误！&apos;)
-      return null
-    }
-    let nameArr = name.split(&apos;|&apos;)
-    let fontlib = nameArr[0]
-    let font = nameArr[1]
-    let CustomIcon = iconMap[fontlib]
-    if (!CustomIcon) throw new Error(&apos;没有找到匹配的font库，请review代码！&apos;)
-    return (
-      &lt;CustomIcon name={font} size={size} color={color}/&gt;
-    )
-  }
-}
-
-Icon.propTypes = {
-  name: PropTypes.string.isRequired,
-  size: PropTypes.number.isRequired,
-  color: PropTypes.string.isRequired
-}
-
-export {Icon}
-</code></pre><p>5.使用：</p>
-<pre><code>import {Icon} from &apos;./component/icon&apos;
-
-&lt;Icon name={&apos;oneIcon|xiala&apos;} size={25} color={&apos;white&apos;}/&gt;
-</code></pre><p><strong>五、动画和事件同时执行卡顿问题</strong></p>
-<pre><code>InteractionManager.runAfterInteractions(() =&gt; {
-    this.setState({
-          isShowSongList:true
-      })
-});
-</code></pre><p>使用此方法解决，此方法的意思是在动画执行完成后在执行事件。</p>
-<p><strong>六、render()渲染问题</strong></p>
-<p>每次用数据改变视图都会调用一次render()函数，所以render函数的调用不能频率过高，会造成动画的阻塞。在改变视图的同时，动画也在执行，就会<br>看见动画有卡顿问题。而且视图的改变频率不能超过250ms一次；</p>
-
+</code></pre>
+        
+          <a class="article-more-a" href="/2019/01/04/react-native使用总结/#more">more >></a>
+        
       
 
       
@@ -1319,11 +1155,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
