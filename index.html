@@ -151,6 +151,82 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-vue使用技巧总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/07/vue使用技巧总结/">vue使用技巧总结</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/07/vue使用技巧总结/" class="archive-article-date">
+  	<time datetime="2019-03-07T10:15:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="vue总结"><a href="#vue总结" class="headerlink" title="vue总结"></a>vue总结</h2><p><strong>添加全局配置</strong></p>
+<p>使用 Vue.mixin</p>
+<p>eg:<br>    Vue.mixin({<br>    data () {<br>    return {<br>      service: ‘’, // 服务<br>      router: ‘/‘, // 路由路径<br>      imgSrc: ‘’ // 图片路径<br>    }<br>    },<br>    methods: {<br>      newroot () {<br>          return  this.$route<br>      },<br>      navigatePageTo (url) {<br>          this.$router.push(url)<br>      },<br>      reLaunchPageTo (url) {<br>          this.$router.replace(url)<br>      },<br>      setStorageSync (name, data) {<br>          sessionStorage.setItem(name, JSON.stringify(data))<br>      },<br>      getStorageSync (name) {<br>          return JSON.parse(sessionStorage.getItem(name))<br>      },<br>      alerts(msg){<br>          alert(msg)<br>      },<br>      postRequest(obj){<br>          var callback = this.axios({<br>              method: “post”,<br>              url: obj.url,<br>              data: obj.data,<br>          }).then(function (res) {<br>              return res;<br>          });<br>          return callback;<br>      }<br>    },<br>      created () {<br>    //    this.service = httpService<br>      }<br>    })<br>    /<em> eslint-disable no-new </em>/<br>    new Vue({<br>      el: ‘#app’,<br>      router,<br>      components: { App },<br>      template: ‘<app>‘,<br>      store<br>    })</app></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/07/vue使用技巧总结/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-angular-拦截request回调" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -965,96 +1041,6 @@ forms.append(&apos;ObjType&apos;, &apos;0100&apos;); //append方法用来添加�
 
 
   
-    <article id="post-js时间相关问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/06/js时间相关问题/">js时间相关问题</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/06/js时间相关问题/" class="archive-article-date">
-  	<time datetime="2018-07-06T08:45:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>一、时间戳与日期格式的相互转换</p>
-<p>时间戳转日期格式</p>
-<pre><code>function timestampToTime(timestamp) {
-        var date = new Date(timestamp * 1000);//时间戳为10位需*1000，时间戳为13位的话不需乘1000
-        Y = date.getFullYear() + &apos;-&apos;;
-        M = (date.getMonth()+1 &lt; 10 ? &apos;0&apos;+(date.getMonth()+1) : date.getMonth()+1) + &apos;-&apos;;
-        D = date.getDate() + &apos; &apos;;
-        h = date.getHours() + &apos;:&apos;;
-        m = date.getMinutes() + &apos;:&apos;;
-        s = date.getSeconds();
-        return Y+M+D+h+m+s;
-    }
-    timestampToTime(1403058804);
-    console.log(timestampToTime(1403058804));//2014-06-18 10:33:24
-</code></pre><p>日期转时间戳<br>
-        
-          <a class="article-more-a" href="/2018/07/06/js时间相关问题/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/06/js时间相关问题/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1156,7 +1142,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">blog</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1164,7 +1150,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">blog</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1172,23 +1162,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">url跳转</a>
+                <a href="javascript:void(0)" class="js-tag color3">手机</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">手机</a>
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">url跳转</a>
               </li>
              
               <li class="article-tag-list-item">
